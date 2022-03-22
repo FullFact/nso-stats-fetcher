@@ -20,3 +20,6 @@ Fetches and cleans data from NSO websites and publishes them as tidy data
   - Needs to be individually parsed. 
 
 #### Producer Price Index
+- [South Africa producer price index](http://www.statssa.gov.za/?page_id=1854&PPN=P0142.1)
+- [PDF of history of PPI in South Africa](http://www.statssa.gov.za/publications/P01421/Final_manufactured_goods.pdf)
+  - Notable here that the table contains sub-rows which make it even harder to parse data from
