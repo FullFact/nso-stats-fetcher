@@ -1,6 +1,10 @@
 # nso-stats-fetcher
 Fetches and cleans data from NSO websites and publishes them as tidy data
 
+## Installation 
+- Had to install Java to get Tabula working to read PDFs
+- 
+
 ## South Africa Data
 
 ### Inflation 
