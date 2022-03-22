@@ -67,10 +67,8 @@ def fetch_za_inflation_ppi():
         csvwriter = csv.writer(csvfile)
         csvwriter.writerows(csv_data)
 
-    print('here')
-
 
 
 if __name__ == '__main__':
-    # fetch_za_inflation_cpi()
+    fetch_za_inflation_cpi()
     fetch_za_inflation_ppi()
