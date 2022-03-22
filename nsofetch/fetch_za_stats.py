@@ -1,4 +1,3 @@
-from cmath import nan
 import json
 import csv
 from numpy import NaN 
@@ -43,6 +42,3 @@ def fetch_za_inflation_cpi():
 
 if __name__ == '__main__':
     fetch_za_inflation_cpi()
-    # ons_scraper = create_ons_scraper(production_eventing.NoopEventer())
-    # print(ons_scraper.get_datasets())
-    # ons_scraper.close()
