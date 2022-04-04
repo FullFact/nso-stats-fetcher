@@ -31,6 +31,6 @@ The fragility, especially of PDFs, means whenever this data is updated the scrip
   - CPI
 
 #### Consumer Price Index
-- [Consumer price inflation tables](https://www.ons.gov.uk/economy/inflationandpriceindices/datasets/consumerpriceinflation)
-  - [Has a downloadable .xls file](https://www.ons.gov.uk/file?uri=%2feconomy%2finflationandpriceindices%2fdatasets%2fconsumerpriceinflation%2fcurrent/consumerpriceinflationdetailedreferencetables15022022174940.xls)
+- [Consumer price inflation including housing](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23)
+  - [Has a downloadable .xls file](https://www.ons.gov.uk/generator?format=xls&uri=/economy/inflationandpriceindices/timeseries/l55o/mm23)
   - Does offer a way to filter the Excel file and get the info that you need

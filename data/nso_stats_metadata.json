@@ -1,0 +1,11 @@
+{
+    "UK": {
+        "inflation": {
+            "CPIH": {
+                "title": "Consumer price inflation (inc. housing)",
+                "url": "https://www.ons.gov.uk/generator?format=xls&uri=/economy/inflationandpriceindices/timeseries/l55o/mm23",
+                "filename": "uk_inflation_cpih.csv"
+            }
+        }
+    }
+}
