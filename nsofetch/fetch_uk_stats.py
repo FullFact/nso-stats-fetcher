@@ -1,9 +1,10 @@
+from datetime import datetime
+import json
+
 import requests
 import pandas
 
 import filepaths
-
-import json
 
 def fetch_uk_cpih():
     with open(filepaths.NSO_STATS_METADATA) as json_file:
@@ -15,13 +16,18 @@ def fetch_uk_cpih():
     tmp_filepath = '/tmp/temp.xls'
     open(tmp_filepath, 'wb').write(r.content)
 
-    # on Contents sheet: Table 57	CPI: Detailed indices to 3 dp: 1988-2022
-    df = pandas.read_excel(tmp_filepath, sheet_name='data', skiprows=173)
-    
-    print('here')
-    
+    custom_date_parser = lambda x: datetime.strptime(x, "%Y %b")
+    xl = pandas.ExcelFile(tmp_filepath)
+    # skip first 173 rows to get month data, and special formatting for dates
+    df = xl.parse("data", header=None, names=['date', 'observation'], skiprows=173, parse_dates=['date'], date_parser=custom_date_parser)
 
-
+    output_df = pandas.DataFrame(
+        {'year': df['date'].dt.year, 
+        'month': df['date'].dt.strftime('%b'), 
+        'observation': df['observation']}
+    ).copy()
+    output_filepath = filepaths.DATA_DIR / stats_metadata['UK']['inflation']['CPIH']['filename']
+    output_df.to_csv(output_filepath, index=False)
 
 
 if __name__ == '__main__':
