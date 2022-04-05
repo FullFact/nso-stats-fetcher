@@ -2,31 +2,31 @@
     "UK": {
         "inflation": {
             "CPIH": {
-                "title": "Consumer price inflation (inc. housing)",
-                "url": "https://www.ons.gov.uk/generator?format=xls&uri=/economy/inflationandpriceindices/timeseries/l55o/mm23",
+                "title": "UK Consumer price inflation (inc. housing)",
+                "url": "https://www.ons.gov.uk/generator?format=csv&uri=/economy/inflationandpriceindices/timeseries/l55o/mm23",
                 "filename": "uk_inflation_cpih.csv"
             },
             "CPI": {
-                "title": "Consumer price inflation (excl. housing)",
+                "title": "UK Consumer price inflation (excl. housing)",
                 "url": "https://www.ons.gov.uk/generator?format=csv&uri=/economy/inflationandpriceindices/timeseries/d7g7/mm23",
                 "filename": "uk_inflation_cpi.csv"
             },
             "RPI": {
-                "title": "Retail price inflation",
-                "url": "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/czbh/mm23",
-                "filename": "uk_inflation_rpi"
+                "title": "UK Retail price inflation",
+                "url": "https://www.ons.gov.uk/generator?format=csv&uri=/economy/inflationandpriceindices/timeseries/czbh/mm23",
+                "filename": "uk_inflation_rpi.csv"
             }
         }
     },
     "ZA" : {
         "inflation": {
             "CPI": {
-                "title": "CPI headline year-on-year rates",
+                "title": "ZA CPI headline year-on-year rates",
                 "url": "http://www.statssa.gov.za/publications/P0141/CPIHistory.pdf",
                 "filename": "za_inflation_cpi.csv"
             },
             "PPI": {
-                "title": "PPI for final manufactured goods",
+                "title": "ZA PPI for final manufactured goods",
                 "url": "http://www.statssa.gov.za/publications/P01421/Final_manufactured_goods.pdf",
                 "filename": "za_inflation_ppi.csv"
             }
