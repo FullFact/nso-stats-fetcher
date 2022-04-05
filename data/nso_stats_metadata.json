@@ -5,6 +5,16 @@
                 "title": "Consumer price inflation (inc. housing)",
                 "url": "https://www.ons.gov.uk/generator?format=xls&uri=/economy/inflationandpriceindices/timeseries/l55o/mm23",
                 "filename": "uk_inflation_cpih.csv"
+            },
+            "CPI": {
+                "title": "Consumer price inflation (excl. housing)",
+                "url": "https://www.ons.gov.uk/generator?format=csv&uri=/economy/inflationandpriceindices/timeseries/d7g7/mm23",
+                "filename": "uk_inflation_cpi.csv"
+            },
+            "RPI": {
+                "title": "Retail price inflation",
+                "url": "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/czbh/mm23",
+                "filename": "uk_inflation_rpi"
             }
         }
     },

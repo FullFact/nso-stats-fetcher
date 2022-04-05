@@ -16,9 +16,9 @@ def fetch_uk_cpih():
     tmp_filepath = '/tmp/temp.xls'
     open(tmp_filepath, 'wb').write(r.content)
 
-    custom_date_parser = lambda x: datetime.strptime(x, "%Y %b")
     xl = pandas.ExcelFile(tmp_filepath)
     # skip first 173 rows to get month data, and special formatting for dates
+    custom_date_parser = lambda x: datetime.strptime(x, "%Y %b")
     df = xl.parse("data", header=None, names=['date', 'observation'], skiprows=173, parse_dates=['date'], date_parser=custom_date_parser)
 
     output_df = pandas.DataFrame(
@@ -29,6 +29,30 @@ def fetch_uk_cpih():
     output_filepath = filepaths.DATA_DIR / stats_metadata['UK']['inflation']['CPIH']['filename']
     output_df.to_csv(output_filepath, index=False)
 
+def fetch_uk_cpi():
+    with open(filepaths.NSO_STATS_METADATA) as json_file:
+        stats_metadata = json.load(json_file)
+
+    # download CSV from URL and save to tmp file, then read in
+    url = stats_metadata['UK']['inflation']['CPI']['url']
+    r = requests.get(url)
+    tmp_filepath = '/tmp/temp.xls'
+    open(tmp_filepath, 'wb').write(r.content)
+
+    custom_date_parser = lambda x: datetime.strptime(x, "%Y %b")
+    df = pandas.read_csv(tmp_filepath, skiprows=173, header=None, names=['date', 'observation'], 
+        parse_dates=['date'], date_parser=custom_date_parser)
+
+    output_df = pandas.DataFrame(
+        {'year': df['date'].dt.year, 
+        'month': df['date'].dt.strftime('%b'), 
+        'observation': df['observation']}
+    ).copy()
+    output_filepath = filepaths.DATA_DIR / stats_metadata['UK']['inflation']['CPI']['filename']
+    output_df.to_csv(output_filepath, index=False)
+
+    print('dsfsdf')
 
 if __name__ == '__main__':
-    fetch_uk_cpih()
+    # fetch_uk_cpih()
+    fetch_uk_cpi()
