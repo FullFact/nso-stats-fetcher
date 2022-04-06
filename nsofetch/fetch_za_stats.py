@@ -1,4 +1,5 @@
 import csv
+import itertools
 
 from numpy import NaN 
 import tabula
@@ -13,35 +14,30 @@ def fetch_za_inflation_cpi():
     stats_metadata = utils.read_stats_metadata()
 
     url = stats_metadata['ZA']['inflation']['CPI']['url']
-
     tables = tabula.read_pdf(url, pages="all", multiple_tables=True)
 
     # tables are split between two PDF pages
-    za_cpi_df = pandas.concat([tables[1], tables[2]])
+    df = pandas.concat([tables[1], tables[2]])
     # first 10 years only have yearly average inflation rate
-    za_cpi_df.drop(za_cpi_df.index[:11], inplace=True)
-    # drop Average column 
-    za_cpi_df.drop('Average', axis=1, inplace=True)
-    # get list of years from first column then drop that column
-    years = za_cpi_df.iloc[:, 0].tolist()
-    za_cpi_df.drop(za_cpi_df.columns[0], axis=1, inplace=True)
+    df.drop(df.index[:11], inplace=True)
+    df.reset_index()
 
-    csv_data = [['year', 'month', 'observation']]
-    za_cpi_lists = list(za_cpi_df.itertuples(index=False, name=None))
+    years = list(itertools.chain(*[[i]*12 for i in df.Year.tolist()]))
+    months = [f"{i:02}" for i in range(1, 13)] * len(df.Year)
 
-    for year, za_cpi_row in zip(years, za_cpi_lists):
-        nums_rows = [
-            [year, MONTHS[i], round(float(val.replace(',', '.')), 1)] 
-            for i, val in enumerate(za_cpi_row)
-            # NaN checks if the cells are empty in the table 
-            if val is not NaN
-        ]
-        csv_data += nums_rows
+    from locale import atof, setlocale, LC_NUMERIC
+    setlocale(LC_NUMERIC, '')
+
+    observations = []
+    for row in df.iterrows():
+        observations += row[1]['Jan':'Dec'].tolist()
+
+    output_df = pandas.DataFrame({'year': years, 'month': months, 'observations': observations})
+    output_df.dropna(inplace=True)
+    output_df.observations = output_df.observations.str.replace(',', '.')
 
     output_filepath = filepaths.DATA_DIR / stats_metadata['ZA']['inflation']['CPI']['filename']
-    with open(output_filepath, 'w') as csvfile: 
-        csvwriter = csv.writer(csvfile)
-        csvwriter.writerows(csv_data)
+    output_df.to_csv(output_filepath, index=False)
 
 
 def fetch_za_inflation_ppi():
@@ -77,4 +73,4 @@ def fetch_za_inflation_ppi():
 
 if __name__ == '__main__':
     fetch_za_inflation_cpi()
-    fetch_za_inflation_ppi()
+    # fetch_za_inflation_ppi()
