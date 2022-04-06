@@ -1,17 +1,17 @@
-import json
 import csv
-from numpy import NaN 
 
+from numpy import NaN 
 import tabula
 import pandas
 
 import filepaths
+import utils
 
 MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 def fetch_za_inflation_cpi():
-    with open(filepaths.NSO_STATS_METADATA) as json_file:
-        stats_metadata = json.load(json_file)
+    stats_metadata = utils.read_stats_metadata()
+
     url = stats_metadata['ZA']['inflation']['CPI']['url']
 
     tables = tabula.read_pdf(url, pages="all", multiple_tables=True)
@@ -45,17 +45,16 @@ def fetch_za_inflation_cpi():
 
 
 def fetch_za_inflation_ppi():
-    with open(filepaths.NSO_STATS_METADATA) as json_file:
-        stats_metadata = json.load(json_file)
-    url = stats_metadata['ZA']['inflation']['CPI']['url']
+    stats_metadata = utils.read_stats_metadata()
 
+    url = stats_metadata['ZA']['inflation']['CPI']['url']
     tables = tabula.read_pdf(url, pages="all", multiple_tables=False)
 
     # tables are split between two PDF pages
     za_ppi_df = tables[0]
     # drop Average column 
     za_ppi_df.drop('Average', axis=1, inplace=True)
-    # this PDF is so awkward I can't see a way to get data without hardcoding
+    # this PDF table is so awkward I can't see a way to get data without hardcoding
     years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022]
     table_row_inds = [4, 6, 8, 10, 12, 14, 16, 18, 20, 24]
     table_months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']

@@ -8,16 +8,13 @@ import utils
 def fetch_uk_stat(url: str, skiprows: int, output_filepath: str):
     tmp_filepath = utils.download_csv(url)
 
-    # skip first X rows to get month data, and special formatting for dates
+    # skip first X rows to get month data (starts with yearly, then quarterly), and special formatting for dates
     custom_date_parser = lambda x: datetime.strptime(x, "%Y %b")
     df = pandas.read_csv(tmp_filepath, skiprows=skiprows, header=None, names=['date', 'observation'], 
         parse_dates=['date'], date_parser=custom_date_parser)
 
     output_df = pandas.DataFrame(
-        {'year': df['date'].dt.year, 
-        'month': df['date'].dt.strftime('%b'), 
-        'observation': df['observation']}
-    ).copy()
+        {'year': df['date'].dt.year, 'month': df['date'].dt.strftime('%m'), 'observation': df['observation']}).copy()
     output_df.to_csv(output_filepath, index=False)
 
 def fetch_uk_cpih():
