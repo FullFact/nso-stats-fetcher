@@ -46,7 +46,7 @@ def fetch_za_inflation_ppi():
     # very awkward year column to read
     years = [a.replace(' Index', '') for a in df['Year and'].tolist() if a not in ['type', 'Rate', 'Index', numpy.nan]]
     months = [f"{i:02}" for i in range(1, 13)] * len(years)
-    years = list(itertools.chain(*[[i]*12 for i in years]))
+    years = list(itertools.chain(*[[i]*12 for i in years])) # flatten the list of lists of years
 
     observations = []
     for row_tuple in df.itertuples():
