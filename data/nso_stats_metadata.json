@@ -1,4 +1,11 @@
 {
+    "AR" : {
+        "inflation": {
+            "title": "Expectativas de Inflación",
+            "url": "https://apis.datos.gob.ar/series/api/series/?collapse=month&collapse_aggregation=avg&ids=431.1_EXPECTATIVDIO_M_0_0_30_56&limit=5000&representation_mode=value&format=csv",
+            "filename": "ar_inflation.csv"
+        }
+    },
     "UK": {
         "inflation": {
             "CPIH": {
