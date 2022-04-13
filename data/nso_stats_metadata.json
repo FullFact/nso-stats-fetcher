@@ -9,7 +9,7 @@
     "NG": {
         "inflation": {
             "CPI": {
-                "title": "Nigeria - CPI - Feb 2022",
+                "title": "Nigeria - CPI - Feb 2022 - Monthly year-on-year change",
                 "url": "https://nigerianstat.gov.ng/resource/cpi_1NewFEB2022.xlsx",
                 "filename": "ng_inflation_cpi.csv"
             }

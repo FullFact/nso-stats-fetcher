@@ -9,8 +9,8 @@ def read_stats_metadata() -> dict:
         stats_metadata = json.load(json_file)
     return stats_metadata
 
-def download_csv(url: str) -> str:
+def download_file(url: str) -> str:
     r = requests.get(url)
-    tmp_filepath = '/tmp/temp.csv'
+    tmp_filepath = '/tmp/tmpfile'
     open(tmp_filepath, 'wb').write(r.content)
     return tmp_filepath

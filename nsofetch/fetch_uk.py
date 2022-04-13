@@ -6,7 +6,7 @@ import filepaths
 import utils
 
 def fetch_uk_stat(url: str, skiprows: int, output_filepath: str):
-    tmp_filepath = utils.download_csv(url)
+    tmp_filepath = utils.download_file(url)
 
     # skip first X rows to get month data (starts with yearly, then quarterly), and special formatting for dates
     custom_date_parser = lambda x: datetime.strptime(x, "%Y %b")

@@ -7,7 +7,7 @@ def fetch_ar_inflation():
     stats_metadata = utils.read_stats_metadata()
 
     url = stats_metadata['AR']['inflation']['url']
-    tmp_filepath = utils.download_csv(url)
+    tmp_filepath = utils.download_file(url)
 
     df = pandas.read_csv(tmp_filepath, parse_dates=['indice_tiempo'])
     output_df = pandas.DataFrame(
