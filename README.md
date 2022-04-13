@@ -7,6 +7,10 @@ Fetches and cleans data from NSO websites and publishes them as tidy data
 
 The fragility, especially of PDFs, means whenever this data is updated the scripts to pull the data will also break. Perhaps we need some way of checking for these and not pulling data if so. 
 
+## Argentina
+- Monthly year-on-year inflation retrieved from [this page](https://datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26&collapse=month&collapse_aggregation=avg&representation_mode=percent_change_a_year_ago&start_date=2021-05-01&end_date=2021-06-01).
+
+
 ## South Africa Data
 ### Inflation 
 - There are two types of inflation available on the Statistics South Africa page. 
