@@ -27,10 +27,10 @@ def fetch_za_inflation_cpi():
     for row in df.iterrows():
         observations += row[1]['Jan':'Dec'].tolist()
 
-    output_df = pandas.DataFrame({'year': years, 'month': months, 'observations': observations})
+    output_df = pandas.DataFrame({'year': years, 'month': months, 'observation': observations})
     output_df.dropna(inplace=True)
     # convert from ZA format of commas for decimal places to dots
-    output_df.observations = output_df.observations.str.replace(',', '.')
+    output_df.observation = output_df.observation.str.replace(',', '.')
 
     output_filepath = filepaths.DATA_DIR / stats_metadata['ZA']['inflation']['CPI']['filename']
     output_df.to_csv(output_filepath, index=False)
@@ -55,11 +55,11 @@ def fetch_za_inflation_ppi():
         observations += [row_tuple.Jan, row_tuple.Feb, row_tuple.Mar, row_tuple.Apr, row_tuple.May, row_tuple.Jun, 
             row_tuple.Jul, row_tuple.Aug, row_tuple.Sep, row_tuple.Oct, row_tuple.Nov, row_tuple.Dec]
 
-    output_df = pandas.DataFrame({'year': years, 'month': months, 'observations': observations})
+    output_df = pandas.DataFrame({'year': years, 'month': months, 'observation': observations})
     # this PDF table marks missing values with '..' - so drop those
-    output_df = output_df[output_df.observations != '..']
+    output_df = output_df[output_df.observation != '..']
     # convert from ZA format of commas for decimal places to dots
-    output_df.observations = output_df.observations.str.replace(',', '.')
+    output_df.observation = output_df.observation.str.replace(',', '.')
 
     output_filepath = filepaths.DATA_DIR / stats_metadata['ZA']['inflation']['PPI']['filename']
     output_df.to_csv(output_filepath, index=False)
