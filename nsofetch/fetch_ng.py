@@ -11,7 +11,7 @@ def fetch_ng_inflation_cpi():
 
     df = pandas.read_excel(tmp_filepath, sheet_name='Table1', header=None)
     df = df[17:331]
-    output_df = pandas.DataFrame({'year': df.iloc[:, 0], 'month': df.iloc[:, 1], 'observations': df.iloc[:, 5]})
+    output_df = pandas.DataFrame({'year': df.iloc[:, 0], 'month': df.iloc[:, 1], 'observation': df.iloc[:, 5]})
 
     # there must be a simpler way to do this, anyway, it replaces empty years with their correct value
     clean_years = []

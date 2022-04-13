@@ -3,7 +3,7 @@ import pandas
 import utils
 import filepaths
 
-def fetch_ar_inflation():
+def fetch_ar_inflation_cpi():
     stats_metadata = utils.read_stats_metadata()
 
     url = stats_metadata['AR']['inflation']['CPI']['url']
@@ -14,6 +14,7 @@ def fetch_ar_inflation():
         {'year': df['indice_tiempo'].dt.year, 'month': df['indice_tiempo'].dt.strftime('%m'), 
         'observation': df['ipc_nivel_general_nacional_var_pct_ia']}).copy()
     
+    # the inflation rates are stated as decimals not percentages
     output_df.observation = output_df.observation.apply(lambda x: x*100)
 
     output_filepath = filepaths.DATA_DIR / stats_metadata['AR']['inflation']['CPI']['filename']
@@ -21,4 +22,4 @@ def fetch_ar_inflation():
 
 
 if __name__ == '__main__':
-    fetch_ar_inflation()
+    fetch_ar_inflation_cpi()

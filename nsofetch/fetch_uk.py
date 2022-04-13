@@ -17,32 +17,34 @@ def fetch_uk_stat(url: str, skiprows: int, output_filepath: str):
         {'year': df['date'].dt.year, 'month': df['date'].dt.strftime('%m'), 'observation': df['observation']}).copy()
     output_df.to_csv(output_filepath, index=False)
 
-def fetch_uk_cpih():
-    stats_metadata = utils.read_stats_metadata()
-    skiprows = 173
-    url = stats_metadata['UK']['inflation']['CPIH']['url']
-    output_filepath = filepaths.DATA_DIR / stats_metadata['UK']['inflation']['CPIH']['filename']
 
-    fetch_uk_stat(url, skiprows, output_filepath)
-
-def fetch_uk_cpi():
+def fetch_uk_inflation_cpi():
     stats_metadata = utils.read_stats_metadata()
     url = stats_metadata['UK']['inflation']['CPIH']['url']
-    skiprows = 173
+    skiprows = 174
     output_filepath = filepaths.DATA_DIR / stats_metadata['UK']['inflation']['CPI']['filename']
     
     fetch_uk_stat(url, skiprows, output_filepath)
 
 
-def fetch_uk_rpi():
+def fetch_uk_inflation_cpih():
+    stats_metadata = utils.read_stats_metadata()
+    skiprows = 174
+    url = stats_metadata['UK']['inflation']['CPIH']['url']
+    output_filepath = filepaths.DATA_DIR / stats_metadata['UK']['inflation']['CPIH']['filename']
+
+    fetch_uk_stat(url, skiprows, output_filepath)
+
+
+def fetch_uk_inflation_rpi():
     stats_metadata = utils.read_stats_metadata()
     url = stats_metadata['UK']['inflation']['RPI']['url']
-    skiprows = 375
+    skiprows = 376
     output_filepath = filepaths.DATA_DIR / stats_metadata['UK']['inflation']['RPI']['filename']
     
     fetch_uk_stat(url, skiprows, output_filepath)
 
 if __name__ == '__main__':
-    fetch_uk_cpih()
-    fetch_uk_cpi()
-    fetch_uk_rpi()
+    fetch_uk_inflation_cpi()
+    fetch_uk_inflation_cpih()
+    fetch_uk_inflation_rpi()
