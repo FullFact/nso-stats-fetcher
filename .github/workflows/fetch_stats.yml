@@ -1,9 +1,9 @@
 name: fetch-stats
 
 on:
-  push
-  # schedule:
-  #   - cron: '0 12 * * *' # runs at 12:00 UTC everyday
+  # push
+  schedule:
+    - cron: '0 12 * * *' # runs at 12:00 UTC everyday
 
 jobs:
   build:
@@ -30,7 +30,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git commit -m "update data" -a
+          git commit -m "update stats data" -a
           
       - name: push changes
         uses: ad-m/github-push-action@v0.6.0
