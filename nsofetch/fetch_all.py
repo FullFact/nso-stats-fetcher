@@ -8,7 +8,7 @@ def add_last_updated():
 
     readme = open("README.md", "r")
     list_of_lines = readme.readlines()
-    list_of_lines[1] = "_Last updated: " + dt_string + "_\n\n"
+    list_of_lines[1] = "\n _Last updated: " + dt_string + "_\n\n"
 
     a_file = open("README.md", "w")
     a_file.writelines(list_of_lines)
