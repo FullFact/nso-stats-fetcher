@@ -1,3 +1,5 @@
+[![fetch-stats](https://github.com/FullFact/nso-stats-fetcher/actions/workflows/fetch_stats.yml/badge.svg)](https://github.com/FullFact/nso-stats-fetcher/actions/workflows/fetch_stats.yml)
+
 # nso-stats-fetcher
 Fetches and cleans data from NSO websites and publishes them as tidy data
 
