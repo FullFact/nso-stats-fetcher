@@ -1,5 +1,7 @@
 [![fetch-stats](https://github.com/FullFact/nso-stats-fetcher/actions/workflows/fetch_stats.yml/badge.svg)](https://github.com/FullFact/nso-stats-fetcher/actions/workflows/fetch_stats.yml)
 
+ _Last updated: 21/04/2022 14:29:57_
+
  _Last updated: 21/04/2022 14:29:39_
 
 
