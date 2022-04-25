@@ -1,5 +1,6 @@
 from datetime import datetime
 
+import fetch_ar
 import fetch_uk
 
 def add_last_updated():
@@ -15,6 +16,9 @@ if __name__ == '__main__':
     fetch_uk.fetch_uk_inflation_cpi()
     fetch_uk.fetch_uk_inflation_cpih()
     fetch_uk.fetch_uk_inflation_rpi()
+
+    print('getting argentina data...')
+    fetch_ar.fetch_ar_inflation_cpi()
 
     add_last_updated()
 
