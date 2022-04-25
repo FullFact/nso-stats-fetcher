@@ -2,6 +2,7 @@ from datetime import datetime
 
 import fetch_ar
 import fetch_uk
+import fetch_za
 
 def add_last_updated():
     now = datetime.now()
@@ -19,6 +20,10 @@ if __name__ == '__main__':
 
     print('getting argentina data...')
     fetch_ar.fetch_ar_inflation_cpi()
+
+    print('getting south africa data...')
+    fetch_za.fetch_za_inflation_cpi()
+    fetch_za.fetch_za_inflation_ppi()
 
     add_last_updated()
 
