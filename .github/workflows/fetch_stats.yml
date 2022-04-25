@@ -1,6 +1,7 @@
 name: fetch-stats
 
 on:
+  push:
   schedule:
     - cron: '0 10 * * *' # runs at 10:00 UTC everyday
 
