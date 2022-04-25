@@ -5,8 +5,9 @@ import fetch_uk
 import fetch_za
 
 def add_last_updated():
-    now = datetime.now()
-    dt_string = now.strftime("%Y-%m-%d %H:%M:%S")
+    # just to keep all server times aligned, stick with UTC time everywhere
+    utc_now = datetime.utcnow()
+    dt_string = utc_now.strftime("%Y-%m-%d %H:%M:%S")
 
     out_str = "Last updated: " + dt_string + "\n"
     with open('status.txt', 'w') as the_file:
