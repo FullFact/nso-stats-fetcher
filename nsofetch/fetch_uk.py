@@ -19,9 +19,10 @@ def fetch_uk_stat(url: str, output_filepath: str):
     response = requests.get(url)
     stats = json.loads(response.text)
 
-    csv_output = [['year', 'month', 'observation']]
+    csv_output = [['month', 'observation']]
     for stat in stats['months']:
-        csv_output.append([stat['year'], month_name_to_num(stat['month']), stat['value']])
+        month_val = stat['year'] + '-' + month_name_to_num(stat['month'])
+        csv_output.append([month_val, stat['value']])
 
     with open(output_filepath, "w") as file:
         writer = csv.writer(file)
