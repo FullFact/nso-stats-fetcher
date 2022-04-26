@@ -20,14 +20,16 @@ def fetch_za_inflation_cpi():
     df.drop(df.index[:11], inplace=True)
     df.reset_index()
 
+    # need to create a list with 12 repeats of each year
     years = list(itertools.chain(*[[i]*12 for i in df.Year.tolist()]))
     months = [f"{i:02}" for i in range(1, 13)] * len(df.Year)
+    times = [str(year) + '-' + str(month) for year, month in zip(years, months)]
 
     observations = []
     for row in df.iterrows():
         observations += row[1]['Jan':'Dec'].tolist()
 
-    output_df = pandas.DataFrame({'year': years, 'month': months, 'observation': observations})
+    output_df = pandas.DataFrame({'month': times, 'observation': observations})
     output_df.dropna(inplace=True)
     # convert from ZA format of commas for decimal places to dots
     output_df.observation = output_df.observation.str.replace(',', '.')
@@ -47,6 +49,7 @@ def fetch_za_inflation_ppi():
     years = [a.replace(' Index', '') for a in df['Year and'].tolist() if a not in ['type', 'Rate', 'Index', numpy.nan]]
     months = [f"{i:02}" for i in range(1, 13)] * len(years)
     years = list(itertools.chain(*[[i]*12 for i in years])) # flatten the list of lists of years
+    times = [str(year) + '-' + str(month) for year, month in zip(years, months)]
 
     observations = []
     for row_tuple in df.itertuples():
@@ -55,7 +58,7 @@ def fetch_za_inflation_ppi():
         observations += [row_tuple.Jan, row_tuple.Feb, row_tuple.Mar, row_tuple.Apr, row_tuple.May, row_tuple.Jun, 
             row_tuple.Jul, row_tuple.Aug, row_tuple.Sep, row_tuple.Oct, row_tuple.Nov, row_tuple.Dec]
 
-    output_df = pandas.DataFrame({'year': years, 'month': months, 'observation': observations})
+    output_df = pandas.DataFrame({'month': times, 'observation': observations})
     # this PDF table marks missing values with '..' - so drop those
     output_df = output_df[output_df.observation != '..']
     # convert from ZA format of commas for decimal places to dots
