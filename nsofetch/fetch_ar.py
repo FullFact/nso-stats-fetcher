@@ -11,8 +11,7 @@ def fetch_ar_inflation_cpi():
 
     df = pandas.read_csv(tmp_filepath, parse_dates=['indice_tiempo'])
     output_df = pandas.DataFrame(
-        {'year': df['indice_tiempo'].dt.year, 'month': df['indice_tiempo'].dt.strftime('%m'), 
-        'observation': df['ipc_nivel_general_nacional_var_pct_ia']}).copy()
+        {'month': df['indice_tiempo'].dt.strftime('%Y-%m'), 'observation': df['ipc_nivel_general_nacional_var_pct_ia']})
     
     # the inflation rates are stated as decimals not percentages
     output_df.observation = output_df.observation.apply(lambda x: x*100)
