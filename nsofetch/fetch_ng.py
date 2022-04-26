@@ -30,6 +30,8 @@ def fetch_ng_inflation_cpi():
         'January': '01', 'February': '02', 'March': '03', 'April': '04', 'May': '05', 'June': '06', 'July': '07', 'August': '08', 'September': '09', 'October': '10', 'November': '11', 'December': '12',
     }
     output_df.month = output_df.month.map(month_map)
+    output_df["month"] = output_df["year"].astype(str) + '-' + output_df["month"]
+    output_df.drop('year', axis=1, inplace=True)
 
     output_filepath = filepaths.DATA_DIR / stats_metadata['NG']['inflation']['CPI']['filename']
     output_df.to_csv(output_filepath, index=False)
