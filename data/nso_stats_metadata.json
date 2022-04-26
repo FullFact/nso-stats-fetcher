@@ -17,15 +17,6 @@
             }
         }
     },
-    "PK": {
-        "inflation": {
-            "CPI": {
-                "title": "Pakistan - CPI - Monthly year-on-year change - 2020-04 to 2022-02",
-                "url": "https://www.pbs.gov.pk/sites/default/files//price_statistics/monthly_price_indices/nb/2022/cpi_monthly_review_february_2022.pdf",
-                "filename": "pk_inflation_cpi.csv"
-            }
-        }
-    },
     "UK": {
         "inflation": {
             "CPI": {
