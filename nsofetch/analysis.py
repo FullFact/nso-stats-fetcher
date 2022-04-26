@@ -1,4 +1,6 @@
 import pandas
+import matplotlib
+import hvplot
 import hvplot.pandas # noqa
 
 
@@ -23,8 +25,8 @@ def plot_inflation_stats():
 
     df_plot = pandas.DataFrame({'Argentina': df_ar_inflation.observation, 'UK': df_uk_inflation.observation}, index=idx)
 
-    plot = df_plot.hvplot()
     output_filepath = filepaths.DATA_DIR / 'inflation_stats.html'
+    plot = df_plot.hvplot(y=['Argentina', 'UK'], value_label='Yearly inflation % (CPI)', legend='top', height=500, width=620)
     hvplot.save(plot, output_filepath)
 
 
