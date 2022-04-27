@@ -15,7 +15,7 @@ def fetch_za_inflation_cpi():
     tables = tabula.read_pdf(url, pages="all", multiple_tables=True)
 
     # tables are split between two PDF pages
-    df = pandas.concat([tables[1], tables[2]])
+    df = pandas.concat([tables[1], tables[2]], ignore_index=True)
     # first 10 years only have yearly average inflation rate
     df.drop(df.index[:11], inplace=True)
     df.reset_index()
