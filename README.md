@@ -1,42 +1,57 @@
 [![fetch-stats](https://github.com/FullFact/nso-stats-fetcher/actions/workflows/fetch_stats.yml/badge.svg)](https://github.com/FullFact/nso-stats-fetcher/actions/workflows/fetch_stats.yml)
 
 # National Statistics Offices Statistics Fetcher
-Fetches and cleans data from NSO websites and publishes them as tidy data
+Fetches and cleans data from NSO websites and publishes them as in a standardised [tidy data](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format. 
 
-## Installation 
-- Had to install Java to get Tabula working to read PDFs
-- 
+The data files follows a simple `timescale,observation` format. For example:
 
-The fragility, especially of PDFs, means whenever this data is updated the scripts to pull the data will also break. Perhaps we need some way of checking for these and not pulling data if so. 
+```
+month,observation
+1996-01,47.56
+1996-02,43.645
+1996-03,41.9048
+...
+```
 
-## Argentina
-- Monthly year-on-year inflation retrieved from [this page](https://datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26&collapse=month&collapse_aggregation=avg&representation_mode=percent_change_a_year_ago&start_date=2021-05-01&end_date=2021-06-01).
+These are the statistics that are fetched, reformatted and stored in the `./data` directory:
+- Argentina
+  - [Consumer price index – monthly year-on-year](https://datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26&collapse=month&collapse_aggregation=avg&representation_mode=percent_change_a_year_ago)  
+- Nigeria
+  - [Consumer price index – monthly year-on-year](https://nigerianstat.gov.ng/elibrary/read/1241157)
+- UK
+  - [Consumer price inflation (excl. housing) – monthly year-on-year](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23)
+  - [Consumer price inflation (inc. housing) – monthly year-on-year](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23/data)
+  - [Retail price inflation – monthly year-on-year](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/czbh/mm23/data)
+- South Africa
+  - [Consumer price index - monthly year-on-year](https://www.statssa.gov.za/?page_id=1854&PPN=P0141)
+  - [Producer price index - monthly year-on-year](https://www.statssa.gov.za/?page_id=1854&PPN=P0142.1)
 
+In each case the data file is downloaded and used. Preferably this would be JSON or a CSV, but some countries have PDFs or XLS files. The location of all these files online and other metadata is in the `data/nso_stats_metadata.json` file.
 
-## South Africa Data
-### Inflation 
-- There are two types of inflation available on the Statistics South Africa page. 
-  - Consumer Price Index
-  - Producer Price Index 
+It is also deployed as a Github action which runs once a day at 12:00 UTC. So the statistics should be up to date. You can view this Github action in `.github/workflow/fetch_stats.yaml`. However, given the variability of these statistics data, it wouldn't be surprising if the action breaks at some point if the published format changes.  
 
-#### Consumer Price Index
-- The [CPI info page is here](http://www.statssa.gov.za/?page_id=1854&PPN=P0141). 
-- The actual table we want is in the CPI History document. 
-  - [Document is here](http://www.statssa.gov.za/publications/P0141/CPIHistory.pdf)
-  - This in PDF format. 
-  - Needs to be individually parsed. 
+# Dependenices 
+- Java 8+ (for [Tabula to read PDFs](https://tabula-py.readthedocs.io/en/latest/getting_started.html#requirements))
+- Python 3.10+
+  - It likely works for older versions of Python, but it hasn't been tested
 
-#### Producer Price Index
-- [South Africa producer price index](http://www.statssa.gov.za/?page_id=1854&PPN=P0142.1)
-- [PDF of history of PPI in South Africa](http://www.statssa.gov.za/publications/P01421/Final_manufactured_goods.pdf)
-  - Notable here that the table contains sub-rows which make it even harder to parse data from
+# Setup
+Clone this repo
+```
+git clone https://github.com/theodi/synthetic-data-tutorial.git
+```
 
-## United Kingdom Data
-### Inflation
-- Types
-  - CPI
+Install required libraries in the `requirements.txt`. 
 
-#### Consumer Price Index
-- [Consumer price inflation including housing](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23)
-  - [Has a downloadable .xls file](https://www.ons.gov.uk/generator?format=xls&uri=/economy/inflationandpriceindices/timeseries/l55o/mm23)
-  - Does offer a way to filter the Excel file and get the info that you need
+```
+cd /path/to/repo/nso-stats-fetcher
+pip install -r requirements.txt
+```
+
+To run the scripts and fetch updated versions of all the statistics data, run:
+
+```
+python nsofetch/fetch_all.py
+```
+
+Or just run each country's individual script individually. We use [ISO 3166 country codes](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), for standardised names.
