@@ -44,7 +44,6 @@ git clone https://github.com/theodi/synthetic-data-tutorial.git
 Install required libraries in the `requirements.txt`. 
 
 ```
-cd /path/to/repo/nso-stats-fetcher
 pip install -r requirements.txt
 ```
 
