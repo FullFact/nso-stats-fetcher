@@ -3,7 +3,7 @@
         "inflation": {
             "CPI": {
                 "title": "IPC. Nivel General Nacional. Base dic 2016. Mensual. (148.3_INIVELNAL_DICI_M_26)",
-                "url": "https://apis.datos.gob.ar/series/api/series/?collapse=month&collapse_aggregation=avg&ids=148.3_INIVELNAL_DICI_M_26&limit=5000&representation_mode=percent_change_a_year_ago&format=csv",
+                "url": "https://apis.datos.gob.ar/series/api/series/?collapse=month&collapse_aggregation=avg&ids=148.3_INIVELNAL_DICI_M_26&limit=5000&representation_mode=percent_change_a_year_ago&format=json",
                 "filename": "ar_inflation_cpi.csv"                    
             }
         }

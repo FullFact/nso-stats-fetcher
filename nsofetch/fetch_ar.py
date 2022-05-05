@@ -1,21 +1,27 @@
 import pandas
+import requests 
 
 import utils
 import filepaths
+
+import json
 
 def fetch_ar_inflation_cpi():
     stats_metadata = utils.read_stats_metadata()
 
     url = stats_metadata['AR']['inflation']['CPI']['url']
-    tmp_filepath = utils.download_file(url)
+    response = requests.get(url)
+    stats = json.loads(response.text)
 
-    df = pandas.read_csv(tmp_filepath, parse_dates=['indice_tiempo'])
-    output_df = pandas.DataFrame(
-        {'month': df['indice_tiempo'].dt.strftime('%Y-%m'), 'observation': df['ipc_nivel_general_nacional_var_pct_ia']})
-    
-    # the inflation rates are stated as decimals not percentages
-    output_df.observation = output_df.observation.apply(lambda x: x*100)
+    months = []
+    observations = []
+    for row in stats['data']:
+        # drop the day number from data: eg. '2020-01-01' becomes '2020-01'
+        months.append(row[0][:7])
+        # convert decimal to percentage
+        observations.append(row[1] * 100)
 
+    output_df = pandas.DataFrame({'month': months, 'observation': observations})
     output_filepath = filepaths.DATA_DIR / stats_metadata['AR']['inflation']['CPI']['filename']
     output_df.to_csv(output_filepath, index=False)
 
