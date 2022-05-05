@@ -53,4 +53,4 @@ To run the scripts and fetch updated versions of all the statistics data, run:
 python nsofetch/fetch_all.py
 ```
 
-Or just run each country's individual script individually. We use [ISO 3166 country codes](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), for standardised names.
+Or just run each country's individual script individually. We use [ISO 3166 country codes](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), for standardised country names.
