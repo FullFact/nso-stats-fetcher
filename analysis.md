@@ -1,5 +1,6 @@
-# Inflation anaylsis
+# National statistics data on inflation
 
+Inflation is a measure of the rate at which the value of all goods and services in a country increases. It is measured in percentage points per year. 
 
 The fragility, especially of PDFs, means whenever this data is updated the scripts to pull the data will also break. Perhaps we need some way of checking for these and not pulling data if so. 
 
