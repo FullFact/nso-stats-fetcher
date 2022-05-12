@@ -1,5 +1,21 @@
 # National statistics data on inflation
 
+This is a graph of inflation in a number of countries over time.
+
+![Inflation in different countries over time](./data/inflation_stats.png)
+
+However, making this graph was not simple. It took time, plenty of searching and some programming skills to create. 
+
+This shouldn't be the case. As these are national statistics, everyone should be able to easily find, view and analyse this data. 
+
+## Where did this data come from? 
+
+Probably a few questions raised in your head when you looked at this graph. 
+
+
+
+
+
 Inflation is a measure of the rate at which the value of all goods and services in a country increases. It is measured in percentage points per year. 
 
 The fragility, especially of PDFs, means whenever this data is updated the scripts to pull the data will also break. Perhaps we need some way of checking for these and not pulling data if so. 
