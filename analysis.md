@@ -24,7 +24,7 @@ Full Fact are developing a robo-checking tool, which automates parts of fact che
 
 More broadly, at the Open Data Institute, we want a world where data works for everyone. National statistics are really important open data. And we hope with better-published national statistics, it means more people using them to for more insights and better decisions. We hope this article helps the cause!
 
-## What are national statistics? 
+## What are national statistics
 
 There are many organisations in a country that can publish national statistics data. These include government departments, research institutes, health services, survey companies or international groups. All the statistics published by these creates the [**national statistical system**](https://stats.oecd.org/glossary/detail.asp?ID=1726).
 
@@ -34,21 +34,17 @@ NSOs publish statistical data on topics like health, the economy, education and 
 
 They're statistics produced within countries about how that country is doing. They can come from many sources including goverment departments, health services, academics or national . These all make up what is known as the [national statistical system](https://stats.oecd.org/glossary/detail.asp?ID=1726). 
 
-**What is inflation?**
+## A brief note on inflation
 
-There's other places much more qualified than me to define inflation. 
+There's other places much [more qualified than here to define inflation](https://www.oecd-ilibrary.org/economics/producer-price-indices-ppi/indicator/english_a24f6fa9-en). But, in short, there are a few types. Consumer Price Index, CPI, is the weighted average of a typical basket of goods. CPIH is another which includes housing. There's Producer Price Index, which measures how much domestic producers pay. And there's also Retail Price Index which measures retail goods and services.
 
-It shows a type of inflation called the Consumer Price Index. This is how much a typical basket of goods has changed in price from year to year, and calculated every month. So how much did the price of goods cost in, say, this February versus last February.
+When you see "inflation" in the news, they're usually talking about CPI. And therefore, this is most important for fact checking.  So we focus on how we got the CPI for each country. 
 
-* There’s a few types
-  * CPI
-  * PPI
-  * RPI
+Also, we're not here to judge how these measures are calculated or which measure is the best. We're focused on how these numbers appear on NSO websites, and are they easy to use, share and analyse. 
 
-* National statistics are data
+## Getting the inflation data for each country
 
-* **Process for each country**
-  * Argentina
+* * Argentina
     * - Monthly year-on-year inflation retrieved from [this page](https://datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26&collapse=month&collapse_aggregation=avg&representation_mode=percent_change_a_year_ago&start_date=2021-05-01&end_date=2021-06-01).
     * Website is this. Looked through their page, using translate. Found some measure of inflation. 
     * Turned to our project partners in Chequeado. After much discussion found this. 
@@ -68,9 +64,25 @@ It shows a type of inflation called the Consumer Price Index. This is how much a
     * The ONS make it pretty easy to find this page
     * There is a CSV to download. 
     * However, there is this magical /data thing
-* **Improving national statistics publishing**
-  * This shouldn’t be as difficult to do this. Not that each individual site is particularly bad. It’s just that adding them up and combining them takes a lot of work of understanding the individual knowledge of each NSO.  
-  * The more it takes to read these the more locked away this information becomes
-  * If we have standards in data publishing by NSOs, and that they make data more easily machine readable. 
-  * And then ultimately the point is to make it easier to gain insights and make better decisions in the world
+
+
+
+## Improving national statistics publishing
+
+* This shouldn’t be as difficult to do this. Not that each individual site is particularly bad. It’s just that adding them up and combining them takes a lot of work of understanding the individual knowledge of each NSO.  
+* The more it takes to read these the more locked away this information becomes
+* If we have standards in data publishing by NSOs, and that they make data more easily machine readable. 
+* And then ultimately the point is to make it easier to gain insights and make better decisions in the world
+
+All NSOs publish statistical data about their country. But the quantity and quality of data varies greatly between them. This is very understandable as every country has different finances, resources and society.
+
+However, there exist good practices and standards in open data publishing that every NSO, no matter the size of budget, can aim to achieve. We’re not saying every NSO needs to build large data platforms, but simple, achievable techniques exist which can really help users of data.
+
+Open principles for data publishing are partly about following open standards and partly about thinking about how the data can best be designed for other people to be able to reuse.
+
+The Office of National Statistics in the UK produced a [set of principles for what this can practically mean](https://digitalblog.ons.gov.uk/2017/01/06/some-open-data-publishing-principles/). In these they outline a need to consider publishing information so that it performs well on other sites and services. This is similar in many ways to the use of the [Claim Review format](https://schema.org/ClaimReview) in the fact checking world. For statistics this might be about how well it displays in the [Google dataset explorer](https://www.google.com/publicdata/directory) or in search results. This wider theme of making data part of the web is a key component of making data available in ways that support the processes of fact checking. By making access easier to the data, always presenting it in context and designing systems with reuse at the core.
+
+The ODI has also undertaken a range of work around the idea of [data as infrastructure](https://theodi.org/topic/data-infrastructure/) and has a short eLearning course [What is open data?](https://data.europa.eu/elearning/en/module1/#/id/co-01) Both of these offer further useful guidance on this topic.
+
+
 
