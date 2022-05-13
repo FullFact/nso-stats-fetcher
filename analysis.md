@@ -1,34 +1,52 @@
-# A journey into some national inflation data
+# Better national statistics data publishing
 
-## A graph of some country's inflation
+## Comparing inflation across countries
 
-* This is a graph
-  * Well, abracadabra. Here’s a graph of it This is a plot of inflation over time in 4 different countries. You can also view it as [an interactive plot.](https://rawcdn.githack.com/FullFact/nso-stats-fetcher/35d695071faf97930960102da860cf83e73f1c5e/data/inflation_stats.html) 
-* Picture of the graph
-  * ![Inflation in different countries over time](./data/inflation_stats.png)￼
-* However, making this graph was not simple. 
-  * It took a lot of time, plenty of searching and some programming skills to create. This shouldn't be the case. 
-* As these are national statistics, everyone should be able to easily find, view and analyse this data. 
+This is a graph of inflation over time in Argentina, Nigeria, the UK and South Africa (also online as [an interactive plot](https://rawcdn.githack.com/FullFact/nso-stats-fetcher/35d695071faf97930960102da860cf83e73f1c5e/data/inflation_stats.html)). It shows the monthly consumer price index, year-on-year. Simply put, it's how much a basket of regular household goods has changed in price from, say, April one year, to the following one.    
 
-* There’s some probably some questions you might be thinking. 
-  * Where did the data for this come from? 
-  * Why does South Africa have so many plot points?
-  * Why does Argentina have so few?
-* This work will talk about how this data came about
+![Inflation in different countries over time](./data/inflation_stats.png)￼
 
-* **Why are you doing this?**
-  * Provide a database of well-formatted data that can be used in [Full Fact’s Robo-checking](https://github.com/FullFact/Robo-checking). 
-  * Show how varied and hard to collect national statistics data across countries can be
-* **What are national statistics?** 
-  * What are NSS
-  * What are NSO
-  * What is inflation?
-    * It shows a type of inflation called the Consumer Price Index. This is how much a typical basket of goods has changed in price from year to year, and calculated every month. So how much did the price of goods cost in, say, this February versus last February.
-    * There’s a few types
-      * CPI
-      * PPI
-      * RPI
-  * National statistics are data
+What's really obvious here is the big difference in information about inflation between the different countries. South Africa's stretches all the way back to the 1920s while data on Argentina only starts in the late 2010s.     
+
+This is a sign that something is going on with the data sources. They're not standardised or the making and publishing of these statistics differs a lot. 
+
+And indeed, making this graph was not at all simple. It took a lot of time, plenty of searching and some programming skills to create. 
+
+This shouldn't be the case. These are very important national statistics data, and they should be be easy for anyone find, view and analyse. 
+
+In this piece, I'll show the differences in how this information was published. And then say how it can be published better. 
+
+## Why are you doing this?
+
+Two reasons, really.
+
+Full Fact are developing a robo-checking tool, which automates parts of fact checking. To say whether a claim or true or not, it needs a standardised, reliable dataset. One of the topics it is used on is inflation. So, we created code which fetches and standardises this data and puts it all in [one location within a Github repo](https://github.com/FullFact/nso-stats-fetcher/tree/main/data).
+
+More broadly, at the Open Data Institute, we want a world where data works for everyone. National statistics are really important open data. And we hope with better-published national statistics, it means more people using them to for more insights and better decisions. We hope this article helps the cause!
+
+## What are national statistics? 
+
+There are many organisations in a country that can publish national statistics data. These include government departments, research institutes, health services, survey companies or international groups. All the statistics published by these creates the [**national statistical system**](https://stats.oecd.org/glossary/detail.asp?ID=1726).
+
+One organisation usually operates as the main hub for national statistical data in a country. These are known as [National Statistical Offices](https://stats.oecd.org/glossary/detail.asp?ID=4344) (NSOs):
+
+NSOs publish statistical data on topics like health, the economy, education and housing. People in the public and private sectors use this data to observe what is happening in the country and to plan ahead. There are NSOs in almost every country on earth. Nearly every country has one main NSO, but in some, such as the USA, the job is split across multiple organisations.
+
+They're statistics produced within countries about how that country is doing. They can come from many sources including goverment departments, health services, academics or national . These all make up what is known as the [national statistical system](https://stats.oecd.org/glossary/detail.asp?ID=1726). 
+
+**What is inflation?**
+
+There's other places much more qualified than me to define inflation. 
+
+It shows a type of inflation called the Consumer Price Index. This is how much a typical basket of goods has changed in price from year to year, and calculated every month. So how much did the price of goods cost in, say, this February versus last February.
+
+* There’s a few types
+  * CPI
+  * PPI
+  * RPI
+
+* National statistics are data
+
 * **Process for each country**
   * Argentina
     * - Monthly year-on-year inflation retrieved from [this page](https://datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26&collapse=month&collapse_aggregation=avg&representation_mode=percent_change_a_year_ago&start_date=2021-05-01&end_date=2021-06-01).
