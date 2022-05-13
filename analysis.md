@@ -44,35 +44,40 @@ Also, we're not here to judge how these measures are calculated or which measure
 
 ## Getting the inflation data for each country
 
-* * Argentina
-    * - Monthly year-on-year inflation retrieved from [this page](https://datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26&collapse=month&collapse_aggregation=avg&representation_mode=percent_change_a_year_ago&start_date=2021-05-01&end_date=2021-06-01).
-    * Website is this. Looked through their page, using translate. Found some measure of inflation. 
-    * Turned to our project partners in Chequeado. After much discussion found this. 
-    * Luckily they have a JSON format. Which is structured this way. 
-  * Nigeria
-    * Nigeria statistics relatively easy to find the data I wanted. 
-    * The format of the table though was quite tricky to parse. 
-  * South Africa
-    * The [CPI info page is here](http://www.statssa.gov.za/?page_id=1854&PPN=P0141). 
-    * The actual table we want is in the CPI History document. 
-    * [Document is here](http://www.statssa.gov.za/publications/P0141/CPIHistory.pdf)
-    * This in PDF format. 
-    * Needs to be individually parsed. 
-    * Here is the page for South Africa. Here’s how I navigated to it. 
-    * Then describe the PDF
-  * United Kingdom
-    * The ONS make it pretty easy to find this page
-    * There is a CSV to download. 
-    * However, there is this magical /data thing
+### Argentina
+
+* Monthly year-on-year inflation retrieved from [this page](https://datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26&collapse=month&collapse_aggregation=avg&representation_mode=percent_change_a_year_ago&start_date=2021-05-01&end_date=2021-06-01).
+* Website is this. Looked through their page, using translate. Found some measure of inflation. 
+* Turned to our project partners in Chequeado. After much discussion found this. 
+* Luckily they have a JSON format. Which is structured this way. 
+
+### South Africa
+
+The [CPI info page is here](http://www.statssa.gov.za/?page_id=1854&PPN=P0141). 
+
+* The actual table we want is in the CPI History document. 
+* [Document is here](http://www.statssa.gov.za/publications/P0141/CPIHistory.pdf)
+* This in PDF format. 
+* Needs to be individually parsed. 
+* Here is the page for South Africa. Here’s how I navigated to it. 
+* Then describe the PDF
+
+### Nigeria
+
+* Nigeria statistics relatively easy to find the data I wanted. 
+* The format of the table though was quite tricky to parse. 
+
+### United Kingdom
+
+* The ONS make it pretty easy to find this page
+* There is a CSV to download. 
+* However, there is this magical /data thing
 
 
 
 ## Improving national statistics publishing
 
-* This shouldn’t be as difficult to do this. Not that each individual site is particularly bad. It’s just that adding them up and combining them takes a lot of work of understanding the individual knowledge of each NSO.  
-* The more it takes to read these the more locked away this information becomes
-* If we have standards in data publishing by NSOs, and that they make data more easily machine readable. 
-* And then ultimately the point is to make it easier to gain insights and make better decisions in the world
+This shouldn’t be as difficult to do this. Not that each individual site is particularly bad. It’s just that adding them up and combining them takes a lot of work of understanding the individual knowledge of each NSO.  
 
 All NSOs publish statistical data about their country. But the quantity and quality of data varies greatly between them. This is very understandable as every country has different finances, resources and society.
 
