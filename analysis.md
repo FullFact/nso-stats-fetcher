@@ -46,26 +46,27 @@ Also, we're not here to judge how these measures are calculated or which measure
 
 ### Argentina
 
-* Monthly year-on-year inflation retrieved from [this page](https://datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26&collapse=month&collapse_aggregation=avg&representation_mode=percent_change_a_year_ago&start_date=2021-05-01&end_date=2021-06-01).
-* Website is this. Looked through their page, using translate. Found some measure of inflation. 
-* Turned to our project partners in Chequeado. After much discussion found this. 
-* Luckily they have a JSON format. Which is structured this way. 
+- [Instituto Nacional de Estadística y Censos](https://www.indec.gob.ar) (INDEC), is the country's main NSO. It has [different pages](https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31) with [reports](https://www.indec.gob.ar/uploads/informesdeprensa/ipc_05_2224DC1A5434.pdf) and some [datasets](https://www.indec.gob.ar/ftp/cuadros/economia/sh_ipc_aperturas.xls) (.XLS file) related to inflation (or "*Índice de precios al consumidor*" as is the translation of "consumer price index"). 
+- This was quite a difficult page for me to find though. A large part of this is definitely my lack of Spanish skills. I tried using an in-browser translation service but couldn't find exactly what I wanted. Then I asked two Spanish-speaking people in the ODI to help me out, but neither could find the CPI numbers. 
+- Luckily, on this project we have Chequeado as partners. So I have quite a long message thread on Slack with Ignacio Ferreiro and Francisco Pensa who helped me ifnd the page for monthly year-on-year CPI on its [own dedicated page](https://datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26&collapse=month&collapse_aggregation=avg&representation_mode=percent_change_a_year_ago). 
+- And the data was available in CSV and JSON. Fantastic! However, there was one slight odd thing whether it showed the rate as percentages on the graph but the data is in ratios between 0 and 1. 
+- Overall, the data is well-formed, and very easy to work with. However, it's not ideal that I needed to find experienced users of these national statistics to find where this data is stored.  
 
 ### South Africa
 
-The [CPI info page is here](http://www.statssa.gov.za/?page_id=1854&PPN=P0141). 
-
-* The actual table we want is in the CPI History document. 
-* [Document is here](http://www.statssa.gov.za/publications/P0141/CPIHistory.pdf)
-* This in PDF format. 
-* Needs to be individually parsed. 
-* Here is the page for South Africa. Here’s how I navigated to it. 
-* Then describe the PDF
+- [Statistics South Africa](https://www.statssa.gov.za) is the NSO for South Africa. 
+- Finding monthly CPI involved navigating through: Find Statistics -> [By theme](https://www.statssa.gov.za/?page_id=595) -> The economy -> [Inflation](https://www.statssa.gov.za/?page_id=735&id=3) -> Consumer Price Index. 
+- On that page there's a standard report in PDF with the supporting tables also available to download. 
+- The actual table we want is in the [CPI History document](http://www.statssa.gov.za/publications/P0141/CPIHistory.pdf) in a PDF format. 
+- This PDF makes it much harder to read using a programme, unlike the JSON files from Argentina and UK. 
+- However, it goes back nearly 100 years!
 
 ### Nigeria
 
-* Nigeria statistics relatively easy to find the data I wanted. 
-* The format of the table though was quite tricky to parse. 
+* [Nigeria Bureau of Statistics](https://nigerianstat.gov.ng)
+* The hompage has graphs of CPI but no link to the underlying datasets
+* Maybe not the clearest structure but easy enough to find the table. [E-library](https://nigerianstat.gov.ng/elibrary) -> [CPI and Inflation Report April 2022](https://nigerianstat.gov.ng/elibrary/read/1241170) -> [Download Tables](https://nigerianstat.gov.ng/resource/cpi_1NewAPR2022.xlsx) (Excel file). 
+* However, the format of the table though was quite tricky to parse programatically. The year isn't filled in for each month so have to interpret it based on last entered year. Month names also switch from shortened 3-letter to full names. 
 
 ### United Kingdom
 
