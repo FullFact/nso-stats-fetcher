@@ -44,6 +44,8 @@ Also, we're not here to judge how these measures are calculated or which measure
 
 ## Getting the inflation data for each country
 
+These are some points about collecting the data from each country. The details might be a bit boring, but the main thing is just how varied, challenging and often needing special insider knowledge it is to get, what should, headline data from these NSOs. 
+
 ### Argentina
 
 - [Instituto Nacional de Estadística y Censos](https://www.indec.gob.ar) (INDEC), is the country's main NSO. It has [different pages](https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31) with [reports](https://www.indec.gob.ar/uploads/informesdeprensa/ipc_05_2224DC1A5434.pdf) and some [datasets](https://www.indec.gob.ar/ftp/cuadros/economia/sh_ipc_aperturas.xls) (.XLS file) related to inflation (or "*Índice de precios al consumidor*" as is the translation of "consumer price index"). 
@@ -70,9 +72,10 @@ Also, we're not here to judge how these measures are calculated or which measure
 
 ### United Kingdom
 
-* The ONS make it pretty easy to find this page
-* There is a CSV to download. 
-* However, there is this magical /data thing
+* The ONS make it extremely easy to find inflation data. The link to [CPIH (housing included) data](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23) is right there clearly marked on the homepage.  
+* However, we're looking for just the regular Consumer Price Index data. The search didn't show exactly what we needed. 
+* So I just relied on Full Fact to point me to where the [dataset for CPI history is](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23). I'm still not sure how you directly navigate to it. 
+* ALSO, I learned from Full Fact the one magical trick where if you type `/data` on an ONS dataset page, it'll show it in JSON! Mind blown. I'm not entirely sure if this is documented anywhere but it's extremely useful.  
 
 
 
