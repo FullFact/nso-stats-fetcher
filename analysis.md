@@ -54,6 +54,21 @@ These are some points about collecting the data from each country. The details m
 - And the data was available in CSV and JSON. Fantastic! However, there was one slight odd thing whether it showed the rate as percentages on the graph but the data is in ratios between 0 and 1. 
 - Overall, the data is well-formed, and very easy to work with. However, it's not ideal that I needed to find experienced users of these national statistics to find where this data is stored.  
 
+### Ireland
+
+- [Central Statistics Office](https://www.cso.ie/en/index.html) Ireland
+- Not too hard to find although took a little bit of playing around with their portal [PxStat](https://github.com/CSOIreland/PxStat) to get the needed CPI data. 
+- Homepage -> [Consumer Price Index](https://www.cso.ie/en/releasesandpublications/er/cpi/consumerpriceindexapril2022/) -> [Consumer Price Index Monthly Series](https://data.cso.ie/product/CPIM) -> [CPM01 - Consumer Price Index](https://data.cso.ie/table/CPM01) 
+- The table has multiple fields and CPI rates for individual commodities (clothing, alcohol, transport, etc). So to simplify this I selected "Percentage Change over 12 months (%)" and a Commodity Group of "all item"
+- The website's portal impressively also presents [the API query for this exact information](https://ws.cso.ie/public/api.jsonrpc?data=%7B%22jsonrpc%22:%222.0%22,%22method%22:%22PxStat.Data.Cube_API.ReadDataset%22,%22params%22:%7B%22class%22:%22query%22,%22id%22:%5B%22STATISTIC%22,%22C01779V03424%22%5D,%22dimension%22:%7B%22STATISTIC%22:%7B%22category%22:%7B%22index%22:%5B%22CPM01C07%22%5D%7D%7D,%22C01779V03424%22:%7B%22category%22:%7B%22index%22:%5B%22-%22%5D%7D%7D%7D,%22extension%22:%7B%22pivot%22:null,%22codes%22:false,%22language%22:%7B%22code%22:%22en%22%7D,%22format%22:%7B%22type%22:%22JSON-stat%22,%22version%22:%222.0%22%7D,%22matrix%22:%22CPM01%22%7D,%22version%22:%222.0%22%7D%7D). 
+
+### Nigeria
+
+* [Nigeria Bureau of Statistics](https://nigerianstat.gov.ng)
+* The hompage has graphs of CPI but no link to the underlying datasets
+* Maybe not the clearest structure but easy enough to find the table. [E-library](https://nigerianstat.gov.ng/elibrary) -> [CPI and Inflation Report April 2022](https://nigerianstat.gov.ng/elibrary/read/1241170) -> [Download Tables](https://nigerianstat.gov.ng/resource/cpi_1NewAPR2022.xlsx) (Excel file). 
+* However, the format of the table though was quite tricky to parse programatically. The year isn't filled in for each month so have to interpret it based on last entered year. Month names also switch from shortened 3-letter to full names. 
+
 ### South Africa
 
 - [Statistics South Africa](https://www.statssa.gov.za) is the NSO for South Africa. 
@@ -62,13 +77,6 @@ These are some points about collecting the data from each country. The details m
 - The actual table we want is in the [CPI History document](http://www.statssa.gov.za/publications/P0141/CPIHistory.pdf) in a PDF format. 
 - This PDF makes it much harder to read using a programme, unlike the JSON files from Argentina and UK. 
 - However, it goes back nearly 100 years!
-
-### Nigeria
-
-* [Nigeria Bureau of Statistics](https://nigerianstat.gov.ng)
-* The hompage has graphs of CPI but no link to the underlying datasets
-* Maybe not the clearest structure but easy enough to find the table. [E-library](https://nigerianstat.gov.ng/elibrary) -> [CPI and Inflation Report April 2022](https://nigerianstat.gov.ng/elibrary/read/1241170) -> [Download Tables](https://nigerianstat.gov.ng/resource/cpi_1NewAPR2022.xlsx) (Excel file). 
-* However, the format of the table though was quite tricky to parse programatically. The year isn't filled in for each month so have to interpret it based on last entered year. Month names also switch from shortened 3-letter to full names. 
 
 ### United Kingdom
 

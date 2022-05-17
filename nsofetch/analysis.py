@@ -14,6 +14,9 @@ def plot_inflation_stats():
     input_filepath = filepaths.DATA_DIR / stats_metadata['AR']['inflation']['CPI']['filename']
     df_ar_inflation = pandas.read_csv(input_filepath, index_col=0, parse_dates=['month'], infer_datetime_format=True)
 
+    input_filepath = filepaths.DATA_DIR / stats_metadata['IE']['inflation']['CPI']['filename']
+    df_ie_inflation = pandas.read_csv(input_filepath, index_col=0, parse_dates=['month'], infer_datetime_format=True)
+
     input_filepath = filepaths.DATA_DIR / stats_metadata['UK']['inflation']['CPI']['filename']
     df_uk_inflation = pandas.read_csv(input_filepath, index_col=0, parse_dates=['month'], infer_datetime_format=True)
 
@@ -29,6 +32,7 @@ def plot_inflation_stats():
     df_plot = pandas.DataFrame(
         {
             'Argentina': df_ar_inflation.observation, 
+            'Ireland': df_ie_inflation.observation, 
             'Nigeria': df_ng_inflation.observation, 
             'UK': df_uk_inflation.observation, 
             'South Africa': df_za_inflation.observation
@@ -37,7 +41,10 @@ def plot_inflation_stats():
     )
 
     output_filepath = filepaths.DATA_DIR / 'inflation_stats.html'
-    plot = df_plot.hvplot(y=['Argentina', 'Nigeria', 'UK', 'South Africa'], value_label='Yearly inflation % (CPI)', legend='top', height=500, width=620)
+    plot = df_plot.hvplot(
+        y=['Argentina', 'Ireland', 'Nigeria', 'UK', 'South Africa'], 
+        value_label='Yearly inflation % (CPI)', legend='top', height=500, width=620
+    )
     hvplot.save(plot, output_filepath)
 
 
