@@ -79,6 +79,13 @@ These are some points about collecting the data from each country. The details m
 * So I just relied on Full Fact to point me to where the [dataset for CPI history is](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23). I'm still not sure how you directly navigate to it. 
 * ALSO, I learned from Full Fact the one magical trick where if you type `/data` on an ONS dataset page, it'll show it in JSON! Mind blown. I'm not entirely sure if this is documented anywhere but it's extremely useful.  
 
+### Countries I couldn't find the data for
+
+#### India
+
+#### Indonesia
+
+#### Pakistan
 
 
 ## Improving national statistics publishing
