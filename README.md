@@ -20,6 +20,8 @@ month,observation
 These are the statistics that are fetched, reformatted and stored in the `./data` directory:
 - Argentina
   - [Consumer price index – monthly year-on-year](https://datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26&collapse=month&collapse_aggregation=avg&representation_mode=percent_change_a_year_ago)  
+- Ireland
+  - [Consumer price index – monthly year-on-year](https://data.cso.ie/product/CPIM)
 - Nigeria
   - [Consumer price index – monthly year-on-year](https://nigerianstat.gov.ng/elibrary/read/1241157)
 - UK

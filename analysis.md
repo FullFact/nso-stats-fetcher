@@ -2,7 +2,7 @@
 
 ## Comparing inflation across countries
 
-This is a graph of inflation over time in Argentina, Nigeria, the UK and South Africa (also online as [an interactive plot](https://rawcdn.githack.com/FullFact/nso-stats-fetcher/35d695071faf97930960102da860cf83e73f1c5e/data/inflation_stats.html)). It shows the monthly consumer price index, year-on-year. Simply put, it's how much a basket of regular household goods has changed in price from, say, April one year, to the following one.    
+This is a graph of inflation over time in Argentina, Ireland, Nigeria, the UK and South Africa. It's also online as [an interactive plot](https://rawcdn.githack.com/FullFact/nso-stats-fetcher/06f2db0c587532934750024118cd1170e8b395d8/data/inflation_stats.html). It shows the monthly consumer price index, year-on-year. 
 
 ![Inflation in different countries over time](./data/inflation_stats.png)￼
 
@@ -28,23 +28,21 @@ More broadly, at the Open Data Institute, we want a world where data works for e
 
 There are many organisations in a country that can publish national statistics data. These include government departments, research institutes, health services, survey companies or international groups. All the statistics published by these creates the [**national statistical system**](https://stats.oecd.org/glossary/detail.asp?ID=1726).
 
-One organisation usually operates as the main hub for national statistical data in a country. These are known as [National Statistical Offices](https://stats.oecd.org/glossary/detail.asp?ID=4344) (NSOs):
+One organisation usually operates as the main hub for national statistical data in a country. These are known as [National Statistical Offices](https://stats.oecd.org/glossary/detail.asp?ID=4344) (NSOs).
 
 NSOs publish statistical data on topics like health, the economy, education and housing. People in the public and private sectors use this data to observe what is happening in the country and to plan ahead. There are NSOs in almost every country on earth. Nearly every country has one main NSO, but in some, such as the USA, the job is split across multiple organisations.
 
-They're statistics produced within countries about how that country is doing. They can come from many sources including goverment departments, health services, academics or national . These all make up what is known as the [national statistical system](https://stats.oecd.org/glossary/detail.asp?ID=1726). 
-
 ## A brief note on inflation
 
-There's other places much [more qualified than here to define inflation](https://www.oecd-ilibrary.org/economics/producer-price-indices-ppi/indicator/english_a24f6fa9-en). But, in short, there are a few types. Consumer Price Index, CPI, is the weighted average of a typical basket of goods. CPIH is another which includes housing. There's Producer Price Index, which measures how much domestic producers pay. And there's also Retail Price Index which measures retail goods and services.
+There's other places much [more qualified than here to define inflation](https://www.oecd-ilibrary.org/economics/producer-price-indices-ppi/indicator/english_a24f6fa9-en). But, in short, there are a few types. Consumer Price Index, CPI, is the weighted average of a typical basket of goods. CPIH is another, used by the UK's ONS, which includes housing. There's Producer Price Index, which measures how much domestic producers pay. And there's also Retail Price Index which measures retail goods and services.
 
 When you see "inflation" in the news, they're usually talking about CPI. And therefore, this is most important for fact checking.  So we focus on how we got the CPI for each country. 
 
-Also, we're not here to judge how these measures are calculated or which measure is the best. We're focused on how these numbers appear on NSO websites, and are they easy to use, share and analyse. 
+We should mention, we are not judging how these inflation measures are calculated or which country's measure is the best. We're focused on how these numbers appear on NSO websites, and are they easy to access and use. 
 
 ## Getting the inflation data for each country
 
-These are some points about collecting the data from each country. The details might be a bit boring, but the main thing is just how varied, challenging and often needing special insider knowledge it is to get, what should, headline data from these NSOs. 
+These are some points about collecting the data from each country. The details might be a bit dry, but the main thing is just how varied, challenging and often needing special insider knowledge it is to get, what should, headline data from these NSOs. 
 
 ### Argentina
 
@@ -55,7 +53,6 @@ These are some points about collecting the data from each country. The details m
 - Overall, the data is well-formed, and very easy to work with. However, it's not ideal that I needed to find experienced users of these national statistics to find where this data is stored.  
 
 ### Ireland
-
 - [Central Statistics Office](https://www.cso.ie/en/index.html) Ireland
 - Not too hard to find although took a little bit of playing around with their portal [PxStat](https://github.com/CSOIreland/PxStat) to get the needed CPI data. 
 - Homepage -> [Consumer Price Index](https://www.cso.ie/en/releasesandpublications/er/cpi/consumerpriceindexapril2022/) -> [Consumer Price Index Monthly Series](https://data.cso.ie/product/CPIM) -> [CPM01 - Consumer Price Index](https://data.cso.ie/table/CPM01) 
@@ -63,14 +60,12 @@ These are some points about collecting the data from each country. The details m
 - The website's portal impressively also presents [the API query for this exact information](https://ws.cso.ie/public/api.jsonrpc?data=%7B%22jsonrpc%22:%222.0%22,%22method%22:%22PxStat.Data.Cube_API.ReadDataset%22,%22params%22:%7B%22class%22:%22query%22,%22id%22:%5B%22STATISTIC%22,%22C01779V03424%22%5D,%22dimension%22:%7B%22STATISTIC%22:%7B%22category%22:%7B%22index%22:%5B%22CPM01C07%22%5D%7D%7D,%22C01779V03424%22:%7B%22category%22:%7B%22index%22:%5B%22-%22%5D%7D%7D%7D,%22extension%22:%7B%22pivot%22:null,%22codes%22:false,%22language%22:%7B%22code%22:%22en%22%7D,%22format%22:%7B%22type%22:%22JSON-stat%22,%22version%22:%222.0%22%7D,%22matrix%22:%22CPM01%22%7D,%22version%22:%222.0%22%7D%7D). 
 
 ### Nigeria
-
 * [Nigeria Bureau of Statistics](https://nigerianstat.gov.ng)
 * The hompage has graphs of CPI but no link to the underlying datasets
 * Maybe not the clearest structure but easy enough to find the table. [E-library](https://nigerianstat.gov.ng/elibrary) -> [CPI and Inflation Report April 2022](https://nigerianstat.gov.ng/elibrary/read/1241170) -> [Download Tables](https://nigerianstat.gov.ng/resource/cpi_1NewAPR2022.xlsx) (Excel file). 
 * However, the format of the table though was quite tricky to parse programatically. The year isn't filled in for each month so have to interpret it based on last entered year. Month names also switch from shortened 3-letter to full names. 
 
 ### South Africa
-
 - [Statistics South Africa](https://www.statssa.gov.za) is the NSO for South Africa. 
 - Finding monthly CPI involved navigating through: Find Statistics -> [By theme](https://www.statssa.gov.za/?page_id=595) -> The economy -> [Inflation](https://www.statssa.gov.za/?page_id=735&id=3) -> Consumer Price Index. 
 - On that page there's a standard report in PDF with the supporting tables also available to download. 
@@ -79,7 +74,6 @@ These are some points about collecting the data from each country. The details m
 - However, it goes back nearly 100 years!
 
 ### United Kingdom
-
 * The ONS make it extremely easy to find inflation data. The link to [CPIH (housing included) data](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23) is right there clearly marked on the homepage.  
 * However, we're looking for just the regular Consumer Price Index data. The search didn't show exactly what we needed. 
 * So I just relied on Full Fact to point me to where the [dataset for CPI history is](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23). I'm still not sure how you directly navigate to it. 
@@ -88,7 +82,6 @@ These are some points about collecting the data from each country. The details m
 
 
 ## Improving national statistics publishing
-
 This shouldn’t be as difficult to do this. Not that each individual site is particularly bad. It’s just that adding them up and combining them takes a lot of work of understanding the individual knowledge of each NSO.  
 
 All NSOs publish statistical data about their country. But the quantity and quality of data varies greatly between them. This is very understandable as every country has different finances, resources and society.
@@ -98,8 +91,6 @@ However, there exist good practices and standards in open data publishing that e
 Open principles for data publishing are partly about following open standards and partly about thinking about how the data can best be designed for other people to be able to reuse.
 
 The Office of National Statistics in the UK produced a [set of principles for what this can practically mean](https://digitalblog.ons.gov.uk/2017/01/06/some-open-data-publishing-principles/). In these they outline a need to consider publishing information so that it performs well on other sites and services. This is similar in many ways to the use of the [Claim Review format](https://schema.org/ClaimReview) in the fact checking world. For statistics this might be about how well it displays in the [Google dataset explorer](https://www.google.com/publicdata/directory) or in search results. This wider theme of making data part of the web is a key component of making data available in ways that support the processes of fact checking. By making access easier to the data, always presenting it in context and designing systems with reuse at the core.
-
-The ODI has also undertaken a range of work around the idea of [data as infrastructure](https://theodi.org/topic/data-infrastructure/) and has a short eLearning course [What is open data?](https://data.europa.eu/elearning/en/module1/#/id/co-01) Both of these offer further useful guidance on this topic.
 
 
 
