@@ -82,10 +82,19 @@ These are some points about collecting the data from each country. The details m
 ### Countries I couldn't find the data for
 
 #### India
+- Government of India – [Ministry of Statistics and Programme Implementation](https://mospi.gov.in/web/mospi/home)
+- Go to [Download tables/data](https://mospi.gov.in/web/mospi/download-tables-data) -> [CPI](https://mospi.gov.in/web/mospi/download-tables-data/-/reports/view/templateOne/16401?q=TBDCAT) -> [April 2022](https://mospi.gov.in/documents/213904//536525//1652358207416_State-wise%20group%20indices%20April%202022.pdf//cbf43606-3aa0-c050-e7c2-e276f6663d87)
+- While this is broken down by region and product, doesn't have history of national CPI.  
+- There's a new [national integrated information platform](https://mospi.gov.in/web/niip/home), and a [CPI page](https://mospi.gov.in/web/cpi) but no links to tables.  
 
 #### Indonesia
+- [Statistics Indonesia](https://www.bps.go.id)
+- Side bar on the home page has "Economic and Trade" section. And a link to [Consumer Price Indices](https://www.bps.go.id/subject/3/inflasi.html#subjekViewTab3) which just seems to be a dead link. 
 
 #### Pakistan
+- [Pakistan Bureau of Statistics](https://www.pbs.gov.pk)
+- [Price statistics](https://www.pbs.gov.pk/content/price-statistics) in the lefthand menu. 
+- There's a page on [Officially Published Consumer Prices Data on IMF Template](https://www.pbs.gov.pk/content/officially-published-consumer-prices-data-imf-template) - which has the info we need but no link to underlying data.
 
 
 ## Improving national statistics publishing
