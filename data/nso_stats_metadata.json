@@ -20,9 +20,18 @@
     "NG": {
         "inflation": {
             "CPI": {
-                "title": "Nigeria - CPI - Feb 2022 - Monthly year-on-year change",
+                "title": "Nigeria - CPI - Monthly year-on-year change",
                 "url": "https://nigerianstat.gov.ng/resource/cpi_1NewMAR2022.xlsx",
                 "filename": "ng_inflation_cpi.csv"
+            }
+        }
+    },
+    "JP": {
+        "inflation": {
+            "CPI": {
+                "title": "Japan monthly CPI year-on-year - Excel file",
+                "url": "https://www.e-stat.go.jp/en/stat-search/file-download?statInfId=000032197259&fileKind=4",
+                "filename": "jp_inflation_cpi.csv"
             }
         }
     },
