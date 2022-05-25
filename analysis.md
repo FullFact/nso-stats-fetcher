@@ -61,7 +61,9 @@ These are some points about collecting the data from each country. The details m
 
 ## Japan
 - [Statistics Bureau of Japan](https://www.stat.go.jp/english/)
-- [Consumer Price Index](https://www.stat.go.jp/english/data/cpi/1581-z.html) under "Latest Indicators" section on main page. Then [Link to statistical tables & database](https://www.e-stat.go.jp/en/stat-search/files?page=1&layout=datalist&toukei=00200573&tstat=000001150147&cycle=1&tclass1=000001150149&tclass2val=0). Then [April 2022](https://www.e-stat.go.jp/en/stat-search/files?page=1&layout=datalist&toukei=00200573&tstat=000001150147&cycle=1&year=20220&month=12040604&tclass1=000001150149&result_back=1&tclass2val=0).
+- [Consumer Price Index](https://www.stat.go.jp/english/data/cpi/1581-z.html) under "Latest Indicators" section on main page. Then [Link to statistical tables & database](https://www.e-stat.go.jp/en/stat-search/files?page=1&layout=datalist&toukei=00200573&tstat=000001150147&cycle=1&tclass1=000001150149&tclass2val=0). Then [April 2022](https://www.e-stat.go.jp/en/stat-search/files?page=1&layout=datalist&toukei=00200573&tstat=000001150147&cycle=1&year=20220&month=12040604&tclass1=000001150149&result_back=1&tclass2val=0). Then under [Table number 1-1 – Subgroup Index for Japan - Monthly](https://www.e-stat.go.jp/en/stat-search/files?page=1&layout=datalist&toukei=00200573&tstat=000001150147&cycle=1&year=20220&month=12040604&tclass1=000001150149&stat_infid=000032197259&result_back=1&tclass2val=0). Then download the Excel file. 
+- There's the option of downloading a CSV file, but it doesn't seem to be available to get it month-by-month for years back.
+- Also an API but that seems to need an API key. 
 
 ### Nigeria
 * [Nigeria Bureau of Statistics](https://nigerianstat.gov.ng)
@@ -111,6 +113,5 @@ However, there exist good practices and standards in open data publishing that e
 Open principles for data publishing are partly about following open standards and partly about thinking about how the data can best be designed for other people to be able to reuse.
 
 The Office of National Statistics in the UK produced a [set of principles for what this can practically mean](https://digitalblog.ons.gov.uk/2017/01/06/some-open-data-publishing-principles/). In these they outline a need to consider publishing information so that it performs well on other sites and services. This is similar in many ways to the use of the [Claim Review format](https://schema.org/ClaimReview) in the fact checking world. For statistics this might be about how well it displays in the [Google dataset explorer](https://www.google.com/publicdata/directory) or in search results. This wider theme of making data part of the web is a key component of making data available in ways that support the processes of fact checking. By making access easier to the data, always presenting it in context and designing systems with reuse at the core.
-
 
 
