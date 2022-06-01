@@ -35,6 +35,15 @@
             }
         }
     },
+    "MX": {
+        "inflation": {
+            "CPI": {
+                "title": "Mexico monthly CPI year-on-year - CSV file",
+                "url": "",
+                "filename": "mx_inflation_cpi.csv"
+            }
+        }
+    },
     "UK": {
         "inflation": {
             "CPI": {
