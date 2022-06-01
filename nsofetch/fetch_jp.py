@@ -11,9 +11,12 @@ def fetch_jp_inflation_cpi():
     tmp_filepath = utils.download_file(url)
 
     df = pandas.read_excel(tmp_filepath, sheet_name='am01-1 (3)', header=None)
+    # first bunch of rows have no info
     df.drop(df.loc[0:df.index[df[7] == '1971年 1月'][0]-1].index, inplace=True)
+    # last bunch of rows also have no info
     df = df[~df[7].isnull()]
 
+    # really annoying formatting for dates - have to go through this rigamarole 
     times = []
     for month_unclean in df[7].tolist():
         if len(month_unclean.strip()) > 4:
