@@ -1,5 +1,4 @@
 import pandas
-import matplotlib
 import hvplot
 import hvplot.pandas # noqa
 
