@@ -38,8 +38,8 @@
     "MX": {
         "inflation": {
             "CPI": {
-                "title": "Mexico monthly CPI year-on-year - CSV file",
-                "url": "",
+                "title": "Mexico monthly CPI year-on-year - Excel file",
+                "url": "https://en.www.inegi.org.mx/app/indicadores/exportacion.aspx?cveser=583753&ag=00&bie=false&aamin=1900&aamax=9999&ordena=a&ordenaPeriodo=ap&orientacion=v&frecuencia=Todo&estadistico=false&esquema=&bdesplaza=False&FileFormat=xls&tc=indicadorVertical&subapp=&tematica=6&name=Estados Unidos Mexicanos&lang=en",
                 "filename": "mx_inflation_cpi.csv"
             }
         }
