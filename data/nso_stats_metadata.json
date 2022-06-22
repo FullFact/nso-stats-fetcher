@@ -44,6 +44,15 @@
             }
         }
     },
+    "PH": {
+        "inflation": {
+            "CPI": {
+                "title": "Philippines monthly CPI year-on-year",
+                "url": "https://psa.gov.ph/statistics/survey/price/summary-inflation-report-consumer-price-index-2018100-may-2022",
+                "filename": "ph_inflation_cpi.csv"
+            }
+        }
+    },
     "UK": {
         "inflation": {
             "CPI": {

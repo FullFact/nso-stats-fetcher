@@ -71,6 +71,14 @@ These are some points about collecting the data from each country. The details m
 * Maybe not the clearest structure but easy enough to find the table. [E-library](https://nigerianstat.gov.ng/elibrary) -> [CPI and Inflation Report April 2022](https://nigerianstat.gov.ng/elibrary/read/1241170) -> [Download Tables](https://nigerianstat.gov.ng/resource/cpi_1NewAPR2022.xlsx) (Excel file). 
 * However, the format of the table though was quite tricky to parse programatically. The year isn't filled in for each month so have to interpret it based on last entered year. Month names also switch from shortened 3-letter to full names. 
 
+### Philippines
+* [Philippines Statistics Authority](https://psa.gov.ph)
+* Scroll down and there's a list of images of headline statistics. Click on "prices" to get to the [Summary Inflation Report Consumer Price Index](https://psa.gov.ph/statistics/survey/price/summary-inflation-report-consumer-price-index-2018100-may-2022)
+* On this page, there's an image which is a [screenshot of a spreadsheet table](https://psa.gov.ph/sites/default/files/psd/CPI%20%282018%3D100%29_05_2022_F2_0.gif) with a recent history of monthly CPI rates. 
+* However, at the bottom, the "Statistical Tables on CPI for All Income Households for May 2022" Excel file does not contain this table. I couldn't find this table in any other file. Does it exist online?
+* So I copied each value of this table directly in to a script which generates the table.  
+
+
 ### South Africa
 - [Statistics South Africa](https://www.statssa.gov.za) is the NSO for South Africa. 
 - Finding monthly CPI involved navigating through: Find Statistics -> [By theme](https://www.statssa.gov.za/?page_id=595) -> The economy -> [Inflation](https://www.statssa.gov.za/?page_id=735&id=3) -> Consumer Price Index. 
