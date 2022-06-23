@@ -38,7 +38,7 @@ There are other places much [more qualified than here to define inflation](https
 
 When you see "inflation" in the news, they're usually talking about CPI. And therefore, this is most important for fact checking. So we focus on how we got the CPI for each country. 
 
-We should mention, we are not judging how these inflation measures are calculated or which country's measure is the best. We are focused on how these numbers appear on NSO websites, and are they easy to access and use. 
+We should mention, we are not judging how these inflation measures are calculated or which country's measure is the best. We are focused on how these numbers appear on NSO websites, and howare they easy to access and use. 
 
 ## Getting the inflation data for each country
 
