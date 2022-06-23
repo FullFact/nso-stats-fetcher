@@ -2,43 +2,43 @@
 
 ## Comparing inflation across countries
 
-This is a graph of inflation over time in Argentina, Ireland, Nigeria, the UK and South Africa. It's also online as [an interactive plot](https://rawcdn.githack.com/FullFact/nso-stats-fetcher/06f2db0c587532934750024118cd1170e8b395d8/data/inflation_stats.html). It shows the monthly consumer price index, year-on-year. 
+This is a graph of inflation over time in Argentina, Ireland, Japan, Mexico, Nigeria, the Philippines, the UK and South Africa. It's also online as [an interactive plot](https://rawcdn.githack.com/FullFact/nso-stats-fetcher/517d01c584bed80c3489333d1c8e00c7ea9c6e23/data/inflation_stats.html). It shows the monthly consumer price index, year-on-year. The underlying data is available in [nice, simple CSVs for each country](https://github.com/FullFact/nso-stats-fetcher/tree/main/data). 
 
 ![Inflation in different countries over time](./data/inflation_stats.png)￼
 
-What's really obvious here is the big difference in information about inflation between the different countries. South Africa's stretches all the way back to the 1920s while data on Argentina only starts in the late 2010s.     
+What's really obvious here is the big difference in inflation data between the different countries. South Africa's stretches all the way back to the 1920s while data on Argentina only starts in the late 2010s. 
 
-This is a sign that something is going on with the data sources. They're not standardised or the making and publishing of these statistics differs a lot. 
+Making this graph was really difficult. It took a lot of time and plenty of dead-ends to find this data, and it took even more time to clean this data and get it in a standardised, machine-readable format. 
 
-And indeed, making this graph was not at all simple. It took a lot of time, plenty of searching and some programming skills to create. 
+Hidden JSON files, screenshots of Excel tables, scraped PDFs. These are just some of the formats I had to deal with just to get these eight countries' inflation data. Every national statistics website a different paradigm in how inflation is published. This isn't to mention the other countries that were simply dead-ends.  
 
-This shouldn't be the case. These are very important national statistics data, and they should be be easy for anyone find, view and analyse. 
+This shouldn't be the case. These are very important national statistics data, and they should be be easy for anyone find, view and use. When data is hard to find or analyse it create barriers between data users and the insights they hope to generate. Slowing them down or even stopping them. 
 
-In this piece, I'll show the differences in how this information was published. And then say how it can be published better. 
+This post describes the many different, and sometimes frustrating, ways inflation data is published. And then how it can be published better.  
 
-## Why are you doing this?
+## Why did we gather this data?
 
-Two reasons, really.
+Two reasons.
 
-Full Fact are developing a robo-checking tool, which automates parts of fact checking. To say whether a claim or true or not, it needs a standardised, reliable dataset. One of the topics it is used on is inflation. So, we created code which fetches and standardises this data and puts it all in [one location within a Github repo](https://github.com/FullFact/nso-stats-fetcher/tree/main/data).
+Full Fact are developing a robo-checking tool, which automates parts of fact checking. One of the topics it fact-checks is inflation. To say whether a claim is true or not, it needs a standardised, reliable inflation dataset. So, we created code which fetches and standardises this data from mutiple places and puts it all in [one location within a Github repo](https://github.com/FullFact/nso-stats-fetcher/tree/main/data).
 
-More broadly, at the Open Data Institute, we want a world where data works for everyone. National statistics are really important open data. And we hope with better-published national statistics, it means more people using them to for more insights and better decisions. We hope this article helps the cause!
+More broadly, at the Open Data Institute, we want a world where data works for everyone. National statistics are extremely important open data. And we hope with better-published national statistics, it means more people using them to for more insights and better decisions. 
 
-## What are national statistics
+## What are national statistics?
 
-There are many organisations in a country that can publish national statistics data. These include government departments, research institutes, health services, survey companies or international groups. All the statistics published by these creates the [**national statistical system**](https://stats.oecd.org/glossary/detail.asp?ID=1726).
+In all countries, there are many organisations that publish national statistics data. These include government departments, research institutes, health services, survey companies and international groups. All the statistics published by these creates the [**national statistical system**](https://stats.oecd.org/glossary/detail.asp?ID=1726).
 
 One organisation usually operates as the main hub for national statistical data in a country. These are known as [National Statistical Offices](https://stats.oecd.org/glossary/detail.asp?ID=4344) (NSOs).
 
-NSOs publish statistical data on topics like health, the economy, education and housing. People in the public and private sectors use this data to observe what is happening in the country and to plan ahead. There are NSOs in almost every country on earth. Nearly every country has one main NSO, but in some, such as the USA, the job is split across multiple organisations.
+NSOs publish statistical data on topics like health, the economy, education and housing. People in the public and private sectors use this data to observe what is happening in the country and to plan ahead. There are NSOs in almost every country on earth. Nearly every country has one main NSO, but in some, such as the USA, the role is split across multiple organisations.
 
 ## A brief note on inflation
 
-There's other places much [more qualified than here to define inflation](https://www.oecd-ilibrary.org/economics/producer-price-indices-ppi/indicator/english_a24f6fa9-en). But, in short, there are a few types. Consumer Price Index, CPI, is the weighted average of a typical basket of goods. CPIH is another, used by the UK's ONS, which includes housing. There's Producer Price Index, which measures how much domestic producers pay. And there's also Retail Price Index which measures retail goods and services.
+There are other places much [more qualified than here to define inflation](https://www.oecd-ilibrary.org/economics/producer-price-indices-ppi/indicator/english_a24f6fa9-en). But, in short, there are a few types. Consumer Price Index, CPI, is the weighted average of a typical basket of goods. CPIH is another, used by the UK's ONS, which includes housing. There's Producer Price Index, which measures how much domestic producers pay. And there's also Retail Price Index which measures retail goods and services.
 
-When you see "inflation" in the news, they're usually talking about CPI. And therefore, this is most important for fact checking.  So we focus on how we got the CPI for each country. 
+When you see "inflation" in the news, they're usually talking about CPI. And therefore, this is most important for fact checking. So we focus on how we got the CPI for each country. 
 
-We should mention, we are not judging how these inflation measures are calculated or which country's measure is the best. We're focused on how these numbers appear on NSO websites, and are they easy to access and use. 
+We should mention, we are not judging how these inflation measures are calculated or which country's measure is the best. We are focused on how these numbers appear on NSO websites, and are they easy to access and use. 
 
 ## Getting the inflation data for each country
 
