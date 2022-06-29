@@ -1,24 +1,18 @@
-# National statistics data publishing needs better standards
+# Comparing inflation data publishing across countries
 
+_Disclaimer: this is a draft work in progress and not a finished piece_
 
+We have been looking at how countries publish statistical data, and how that impacts people who need to work across multiple countries' datasets. To highlight the issue, in this document we look at inflation data from different countries.
 
-## Comparing inflation across countries
-
-Below is a graph of inflation over time in Argentina, Ireland, Japan, Mexico, Nigeria, the Philippines, the UK and South Africa (also as an [interactive plot](https://rawcdn.githack.com/FullFact/nso-stats-fetcher/517d01c584bed80c3489333d1c8e00c7ea9c6e23/data/inflation_stats.html)). It shows the monthly consumer price index, year-on-year in these countries. The underlying data for this graph is available in [nice, simple CSVs for each country](https://github.com/FullFact/nso-stats-fetcher/tree/main/data). 
+Below is a graph of inflation over time in Argentina, Ireland, Japan, Mexico, Nigeria, the Philippines, the UK and South Africa (also as an [interactive plot](https://rawcdn.githack.com/FullFact/nso-stats-fetcher/517d01c584bed80c3489333d1c8e00c7ea9c6e23/data/inflation_stats.html)). It shows the monthly consumer price index, year-on-year in these countries. The underlying data for this graph is available in [standardised, simple CSVs for each country](https://github.com/FullFact/nso-stats-fetcher/tree/main/data). 
 
 ![Inflation in different countries over time](./data/inflation_stats.png)￼
 
-However, the original data was not available in nice, simple CSVs for each country. It took a lot of time and to find this data. It took even more time to clean this data and get it in this standardised, machine-readable format. 
+However, the original data we collected was stored in many styles and formats. It was often hard to find the data we wanted, and then it took more time to clean this data and get it in this standardised, machine-readable format. We encountered hidden JSON files, screenshots of Excel tables, tables inside PDFs and other formats. Every national statistics website seemed to have its own specific approach to publishing data. We also tried other countries but could find the specific data we wanted – monthly, year-on-year CPI numbers.  
 
-Hidden JSON files, screenshots of Excel tables, tables inside PDFs. These are just some of the formats we had to deal with just to get these eight countries' inflation data. Every national statistics website had it's own specific approach to how to publish inflation data. We also tried other countries but could find the specific data we wanted – monthly, year-on-year CPI numbers.  
+This is a good example of how the lack of consistency and interoperability between similar datasets make the jobs of organisations like data journalists, researchers and fact checkers unnecessarily hard. Each individual site does a fairly good job at publishing the data, but collating and comparing individual knowledge of each NSO remains very time consuming.
 
-This shouldn't be the case. These are very important national statistics data, and they should be be easy for anyone find, view and use. When data is hard to find or analyse it create barriers between data users and the insights they hope to generate. These barriers slow people down and even stop them from journalism, fact checking, research and policy maing. 
-
-This post describes the many different ways this inflation data is published by national statistics organisations. And then suggests how they can be published better.  
-
-## Why did we gather this data?
-
-Two reasons.
+## Reasons for collecting this data
 
 Full Fact are developing a [robo-checking tool](https://fullfact.org/blog/2021/jul/how-does-automated-fact-checking-work/), which automates fact checks certain claims. One of the topics it fact-checks is inflation. To say whether a claim is true or not it needs a clean, reliable set of inflation data. So, we created code which fetches and standardises this data from mutiple countries and puts it all in [one location within a Github repo](https://github.com/FullFact/nso-stats-fetcher/tree/main/data).
 
@@ -40,12 +34,10 @@ When you see "inflation" in the news, they're usually talking about CPI. And the
 
 We should mention, we are not judging how these inflation measures are calculated or which country's measure is the best. We are focused on how these numbers appear on NSO websites, and if they are easy to access and use. 
 
-## Getting the inflation data for each country
-
-These are some points about how we found the CPI inflation data from each country's national statistical office's website. It might  seem overly detailed but the main point is how varied, challenging and how often people need special insider knowledge to this data from NSOs. 
+## Inflation data for each country
+These are the steps we undertook to get the data from each country's NSO website. It's quite detailed but our aim is to underline how varied and sometimes compliex it can be to get this data from NSOs. 
 
 ### Argentina
-
 - [Instituto Nacional de Estadística y Censos](https://www.indec.gob.ar) (INDEC). 
 - It has [different pages](https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31) with [reports](https://www.indec.gob.ar/uploads/informesdeprensa/ipc_05_2224DC1A5434.pdf) and some [datasets](https://www.indec.gob.ar/ftp/cuadros/economia/sh_ipc_aperturas.xls) (XLS files) related to inflation (or "*Índice de precios al consumidor*" as is the translation of "consumer price index"). 
 - This was quite a difficult page to find though. And probably a large part of this was down to our lack of Spanish skills. We tried using an in-browser translation service but couldn't find exactly what we wanted. Two Spanish-speaking people in the ODI also tried but neither could find the CPI numbers. 
