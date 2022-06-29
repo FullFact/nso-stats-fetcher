@@ -5,7 +5,7 @@ Fetches and cleans data from NSO websites and publishes them as in a standardise
 
 * This work has two goals
 	* Provide a database of well-formatted data that can be used in [Full Fact’s Robo-checking](https://github.com/FullFact/Robo-checking). 
-	* To highlight how much work is involved to collect and compare national statistics data across countries
+	* To highlight how much work is involved to collect and compare national statistics data across countries. Particularly in the `analysis.md` write-up.
 
 The data files follows a simple `timescale,observation` format. Time is YYYY-MM, and observation is percentage change. For example:
 
@@ -22,8 +22,14 @@ These are the statistics that are fetched, reformatted and stored in the `./data
   - [Consumer price index – monthly year-on-year](https://datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26&collapse=month&collapse_aggregation=avg&representation_mode=percent_change_a_year_ago)  
 - Ireland
   - [Consumer price index – monthly year-on-year](https://data.cso.ie/product/CPIM)
+- Japan
+  - [Consumer price index – monthly year-on-year](https://www.stat.go.jp/english/data/cpi/1581-z.html)
+- Mexico
+  - [Consumer price index – monthly year-on-year](https://www.stat.go.jp/english/data/cpi/1581-z.html)
 - Nigeria
   - [Consumer price index – monthly year-on-year](https://nigerianstat.gov.ng/elibrary/read/1241157)
+- Philippines
+  - [Consumer price index – monthly year-on-year](https://psa.gov.ph/statistics/survey/price/summary-inflation-report-consumer-price-index-2018100-may-2022)
 - UK
   - [Consumer price inflation (excl. housing) – monthly year-on-year](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23)
   - [Consumer price inflation (inc. housing) – monthly year-on-year](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23/data)
@@ -32,9 +38,9 @@ These are the statistics that are fetched, reformatted and stored in the `./data
   - [Consumer price index - monthly year-on-year](https://www.statssa.gov.za/?page_id=1854&PPN=P0141)
   - [Producer price index - monthly year-on-year](https://www.statssa.gov.za/?page_id=1854&PPN=P0142.1)
 
-In each case the data file is downloaded and used. Preferably this would be JSON or a CSV, but some countries have PDFs or XLS files. The location of all these files online and other metadata is in the `data/nso_stats_metadata.json` file.
+In almost all cases the data file is downloaded and read in (except for Philippines where the numbers were hard-coded). Preferably the files would be JSON or a CSV, but some countries have PDFs or XLS files. The location of all these files online and other metadata is in the `data/nso_stats_metadata.json` file.
 
-It is also deployed as a Github action which runs once a day at 12:00 UTC. So the statistics should be up to date. You can view this Github action in `.github/workflow/fetch_stats.yaml`. However, given the variability of these statistics data, it wouldn't be surprising if the action breaks at some point if the published format changes.  
+It is also deployed as a Github action which runs once a day at 12:00 UTC. So some of the statistics should stay up-to-date. You can view this Github action in `.github/workflow/fetch_stats.yaml`. However, given the variability of these statistics data, it wouldn't be surprising if the action breaks at some point if the published format changes.  
 
 # Dependenices 
 - Java 8+ (for [Tabula to read PDFs](https://tabula-py.readthedocs.io/en/latest/getting_started.html#requirements))
