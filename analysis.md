@@ -66,6 +66,13 @@ These are some points about how we found the CPI inflation data from each countr
 - There's the option of downloading a CSV file, but it doesn't seem to be available to get CPI month-by-month for previous years.
 - Also an API but that seems to need an API key. 
 
+### Mexico
+
+- [Instituto Nacional de Estadística y Geografía](https://en.www.inegi.org.mx/default.html) (INEGI)
+- This was almost very easy to get this data. However, one small part of the website made it hard to fetch this data for a program script. 
+- [Topics](https://en.www.inegi.org.mx/temas/) -> [Prices - National Consumer Price Index](https://en.www.inegi.org.mx/temas/inpc/) -> Click the "Data table" button -> Click the "CSV" button. And that download the CSV to the local computer. 
+- However, the hard part is we want the URL of where this CSV sits, so that our program can download it. Right clicking on the "CSV" button gave the URL to the image of the button, not the file itself. To get that CSV URL we had to right click, go to "view page source" to bring up the browser develop tools. Then to "Network" in the tools and look for the request URL when clicking on the CSV button.  
+
 ### Nigeria
 * [Nigeria Bureau of Statistics](https://nigerianstat.gov.ng)
 * The hompage has graphs of CPI but no link to the underlying datasets
