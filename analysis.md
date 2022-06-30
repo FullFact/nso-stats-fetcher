@@ -38,7 +38,7 @@ We should mention, we are not judging how these inflation measures are calculate
 These are the steps we undertook to get the data from each country's NSO website. It's quite detailed but our aim here is to emphasise how varied and sometimes complex it can be to get this data from NSOs. 
 
 ### Argentina
-- [Instituto Nacional de Estadística y Censos](https://www.indec.gob.ar) (INDEC). 
+- [Instituto Nacional de Estadística y Censos](https://www.indec.gob.ar) 
 - It has [different pages](https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31) with [reports](https://www.indec.gob.ar/uploads/informesdeprensa/ipc_05_2224DC1A5434.pdf) and some [datasets](https://www.indec.gob.ar/ftp/cuadros/economia/sh_ipc_aperturas.xls) (XLS files) related to inflation (or "*Índice de precios al consumidor*" as is the translation of "consumer price index"). 
 - This was quite a difficult page to find though. And probably a large part of this was down to our lack of Spanish skills. We tried using an in-browser translation service but couldn't find exactly what we wanted. Two Spanish-speaking people in the ODI also tried but neither could find the CPI numbers. 
 - Luckily, on this project we have Chequeado as partners. So, after quite a long message thread on Slack with Ignacio Ferreiro and Francisco Pensa, we found the page for [monthly year-on-year CPI](https://datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26&collapse=month&collapse_aggregation=avg&representation_mode=percent_change_a_year_ago). 
@@ -46,7 +46,7 @@ These are the steps we undertook to get the data from each country's NSO website
 - Overall, the data is well-formed, and very easy to work with. However, it's not ideal that I needed to find experienced users of these national statistics to find where this data is stored.  
 
 ### Ireland
-- [Central Statistics Office](https://www.cso.ie/en/index.html) Ireland
+- [Central Statistics Office](https://www.cso.ie/en/index.html)
 - Not too hard to find the CPI data, although it took a little bit of playing around with their portal [PxStat](https://github.com/CSOIreland/PxStat). 
 - Homepage -> _[Consumer Price Index](https://www.cso.ie/en/releasesandpublications/er/cpi/consumerpriceindexapril2022/)_ -> _[Consumer Price Index Monthly Series](https://data.cso.ie/product/CPIM)_ -> _[CPM01 - Consumer Price Index](https://data.cso.ie/table/CPM01)_ 
 - The table has multiple fields and CPI rates for individual commodities (clothing, alcohol, transport, etc). So to simplify this we selected "Percentage Change over 12 months (%)" and a Commodity Group of "all item"
@@ -80,7 +80,7 @@ These are the steps we undertook to get the data from each country's NSO website
 
 
 ### South Africa
-- [Statistics South Africa](https://www.statssa.gov.za). 
+- [Statistics South Africa](https://www.statssa.gov.za)
 - Finding monthly CPI involved navigating through: Find Statistics -> [By theme](https://www.statssa.gov.za/?page_id=595) -> The economy -> [Inflation](https://www.statssa.gov.za/?page_id=735&id=3) -> Consumer Price Index. 
 - On that page there's a standard report in PDF with the supporting tables also available to download. 
 - The actual table we want is in the [CPI History document](http://www.statssa.gov.za/publications/P0141/CPIHistory.pdf) in a PDF format. 
@@ -88,6 +88,7 @@ These are the steps we undertook to get the data from each country's NSO website
 - However, the inflation data goes back nearly 100 years!
 
 ### United Kingdom
+* [Office for National Statistics](http://ons.gov.uk)
 * The ONS make it extremely easy to find inflation data. The link to [CPIH (housing included) data](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23) is right there clearly marked on the homepage.  
 * However, we're looking for just the regular Consumer Price Index data. The search didn't show exactly what we needed. 
 * So we just relied on people in Full Fact to point us to where the [dataset for CPI history is](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23). 
