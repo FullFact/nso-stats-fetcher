@@ -3,9 +3,9 @@
 # National Statistical Offices Statistics Fetcher
 Fetches and cleans data from NSO websites and publishes them as in a standardised [tidy data](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format. 
 
-* This work has two goals
-	* Provide a database of well-formatted data that can be used in [Full Fact’s Robo-checking](https://github.com/FullFact/Robo-checking). 
-	* To highlight how much work is involved to collect and compare national statistics data across countries. Particularly in the `analysis.md` write-up.
+This work has two goals
+- Provide a database of well-formatted data that can be used in [Full Fact’s Robo-checking](https://github.com/FullFact/Robo-checking). 
+- To highlight how much work is involved to collect and compare national statistics data across countries. Particularly in the `analysis.md` write-up.
 
 The data files follows a simple `timescale,observation` format. Time is YYYY-MM, and observation is percentage change. For example:
 
