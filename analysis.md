@@ -1,24 +1,24 @@
 # Comparing inflation data publishing across countries
 
-_Disclaimer: this is a draft work in progress and not a finished piece_
+_Disclaimer: consider this more of a draft work-note than a finished piece_
 
-We have been looking at how countries publish statistical data, and how that impacts people who need to work across multiple countries' datasets. To highlight the issue, in this document we look at inflation data from different countries.
+We looked at how countries publish statistical data, and how that impacts people who need to work across multiple countries' datasets. To highlight the issue, in this document we look at inflation data from different countries.
 
 Below is a graph of inflation over time in Argentina, Ireland, Japan, Mexico, Nigeria, the Philippines, the UK and South Africa (also as an [interactive plot](https://rawcdn.githack.com/FullFact/nso-stats-fetcher/517d01c584bed80c3489333d1c8e00c7ea9c6e23/data/inflation_stats.html)). It shows the monthly consumer price index, year-on-year in these countries. The underlying data for this graph is available in [standardised, simple CSVs for each country](https://github.com/FullFact/nso-stats-fetcher/tree/main/data). 
 
 ![Inflation in different countries over time](./data/inflation_stats.png)￼
 
-However, the original data we collected was stored in many styles and formats. It was often hard to find the data we wanted, and then it took more time to clean this data and get it in this standardised, machine-readable format. We encountered hidden JSON files, screenshots of Excel tables, tables inside PDFs and other formats. Every national statistics website seemed to have its own specific approach to publishing data. We also tried other countries but could find the specific data we wanted – monthly, year-on-year CPI numbers.  
+However, the original data we collected from national statistical offices was stored in many styles and formats. It was often hard to find the data we wanted, and then it took more time to clean this data and get it in this standardised, machine-readable format. We encountered hidden JSON files, screenshots of Excel tables, tables inside PDFs and other formats. Every national statistics website seemed to have its own specific approach to publishing open data. We also tried other countries but couldn't find the specific inflation data we wanted.  
 
-This is a good example of how the lack of consistency and interoperability between similar datasets make the jobs of organisations like data journalists, researchers and fact checkers unnecessarily hard. Each individual site does a fairly good job at publishing the data, but collating and comparing individual knowledge of each NSO remains very time consuming.
+This is a good example of how the lack of consistency and interoperability between similar datasets make the jobs of organisations like data journalists, researchers and fact checkers unnecessarily hard. Each individual site does a fairly good job at publishing the data, but collating and comparing individual knowledge of each national statistics office remains very time consuming.
 
-## Reasons for collecting this data
+## Two reasons we collected this data
 
 Full Fact are developing a [robo-checking tool](https://fullfact.org/blog/2021/jul/how-does-automated-fact-checking-work/), which automates fact checks certain claims. One of the topics it fact-checks is inflation. To say whether a claim is true or not it needs a clean, reliable set of inflation data. So, we created code which fetches and standardises this data from mutiple countries and puts it all in [one location within a Github repo](https://github.com/FullFact/nso-stats-fetcher/tree/main/data).
 
 More broadly, at the Open Data Institute, we want a world where data works for everyone. National statistics are extremely important open data. With better-published national statistics, it means more people can use them for better insights and decisions. We hope this piece adds to that discussion.
 
-## What are national statistics?
+## Defining national statistics
 
 In all countries, there are many organisations that publish national statistics data. These include government departments, research institutes, health services, survey companies and international groups. All the statistics published by these creates the [national statistical system](https://stats.oecd.org/glossary/detail.asp?ID=1726).
 
@@ -26,7 +26,7 @@ One organisation usually operates as the main hub for national statistical data 
 
 NSOs publish statistical data on topics like health, the economy, education and housing. People in the public and private sectors use this data to observe what is happening in the country and to plan ahead. There are NSOs in almost every country on earth. Nearly every country has one main NSO, but in some, such as the USA, the role is split across multiple organisations.
 
-## A brief note on the inflation data
+## Defining inflation data
 
 There are other places much [more qualified than here to define inflation](https://www.oecd-ilibrary.org/economics/producer-price-indices-ppi/indicator/english_a24f6fa9-en). But, in short, there are a few types. Consumer Price Index (CPI) is the weighted average of a typical basket of goods. CPIH is another, used by the UK's ONS, which includes housing. There is also the Producer Price Index, which measures how much domestic producers pay for goods. And there's the Retail Price Index which measures retail goods and services.
 
@@ -35,7 +35,7 @@ When you see "inflation" in the news, they're usually talking about CPI. And the
 We should mention, we are not judging how these inflation measures are calculated or which country's measure is the best. We are focused on how these numbers appear on NSO websites, and if they are easy to access and use. 
 
 ## Inflation data for each country
-These are the steps we undertook to get the data from each country's NSO website. It's quite detailed but our aim is to underline how varied and sometimes compliex it can be to get this data from NSOs. 
+These are the steps we undertook to get the data from each country's NSO website. It's quite detailed but our aim here is to emphasise how varied and sometimes complex it can be to get this data from NSOs. 
 
 ### Argentina
 - [Instituto Nacional de Estadística y Censos](https://www.indec.gob.ar) (INDEC). 
@@ -67,7 +67,7 @@ These are the steps we undertook to get the data from each country's NSO website
 
 ### Nigeria
 * [Nigeria Bureau of Statistics](https://nigerianstat.gov.ng)
-* The hompage has graphs of CPI but no link to the underlying datasets
+* The homepage has graphs of CPI but no link to the underlying datasets
 * Maybe not the clearest structure but easy enough to find the table. [E-library](https://nigerianstat.gov.ng/elibrary) -> [CPI and Inflation Report April 2022](https://nigerianstat.gov.ng/elibrary/read/1241170) -> [Download Tables](https://nigerianstat.gov.ng/resource/cpi_1NewAPR2022.xlsx) (Excel file). 
 * However, the format of the table though was quite tricky to parse using program code. The year isn't filled in for each month so we have to interpret it based on last entered year. Month names also switch from shortened 3-letter to full names. 
 
@@ -114,15 +114,12 @@ These are the steps we undertook to get the data from each country's NSO website
 
 
 ## Improving national statistics publishing
-It shouldn’t be this difficult to do this analysis of inflation data. 
-
 All NSOs publish statistical data about their country. But the quantity and quality of data varies greatly between them. This is very understandable as every country has different finances, resources and society.
 
-However, there exist good practices and standards in open data publishing that every NSO, no matter the size of budget, can aim to achieve. We’re not saying every NSO needs to build large data platforms, but simple, achievable formats exist which can really help data users.
+However, there exist good practices and standards in open data publishing that every NSO, no matter the size of budget, can try to achieve. We’re not saying every NSO needs to build large data platforms, but simple, easy-to-use data formats exist which can really help data users.
 
-Open principles for data publishing are partly about following open standards and partly about thinking about how the data can best be designed for other people to be able to reuse.
+Open principles for data publishing are partly about following open standards and partly about thinking how the data can best be designed for other people to be able to reuse. The Office of National Statistics in the UK produced a [set of principles for what this can practically mean](https://digitalblog.ons.gov.uk/2017/01/06/some-open-data-publishing-principles/). In these they outline a need to consider publishing information so that it performs well on other sites and services. This is similar in many ways to the use of the [Claim Review format](https://schema.org/ClaimReview) in the fact checking world. For statistics this might be about how well it displays in the [Google dataset explorer](https://www.google.com/publicdata/directory) or in search results. This wider theme of making data part of the web is a key component of making data available in ways that support the processes of fact checking. By making access easier to the data, always presenting it in context and designing systems with reuse at the core.
 
-The Office of National Statistics in the UK produced a [set of principles for what this can practically mean](https://digitalblog.ons.gov.uk/2017/01/06/some-open-data-publishing-principles/). In these they outline a need to consider publishing information so that it performs well on other sites and services. This is similar in many ways to the use of the [Claim Review format](https://schema.org/ClaimReview) in the fact checking world. For statistics this might be about how well it displays in the [Google dataset explorer](https://www.google.com/publicdata/directory) or in search results. This wider theme of making data part of the web is a key component of making data available in ways that support the processes of fact checking. By making access easier to the data, always presenting it in context and designing systems with reuse at the core.
+## Related work
 
-For more on this, please see our guide on [open data publishing](https://github.com/theodi/data-publish-list), which contains links to lots of excellent tools and advice.
-
+For more on this topic, please see our guide on [open data publishing](https://github.com/theodi/data-publish-list), which contains links to lots of excellent tools and advice. Also, see our guide on [National Statistics for Fact Checking](https://fullfact.github.io/national-statistics-for-fact-checking/docs/fact-checking/). 
