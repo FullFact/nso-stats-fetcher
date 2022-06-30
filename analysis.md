@@ -1,6 +1,6 @@
 # Comparing inflation data publishing across countries
 
-_Disclaimer: consider this more of a draft work-note than a finished piece_
+_Disclaimer: this is a draft worknote_
 
 We looked at how countries publish statistical data, and how that impacts people who need to work across multiple countries' datasets. To highlight the issue, in this document we look at inflation data from different countries.
 
