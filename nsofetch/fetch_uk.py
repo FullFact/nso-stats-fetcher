@@ -3,7 +3,7 @@ import csv
 import requests
 import filepaths
 import utils
-from uk_historic_cpi import cpi_times, cpi_observations
+from uk_historic_inflation import inflation_times, cpi_observations, cpih_observations
 
 
 def month_name_to_num(month_name):
@@ -47,7 +47,7 @@ def fetch_uk_inflation_cpi():
     output_filepath = (
         filepaths.DATA_DIR / stats_metadata["UK"]["inflation"]["CPI"]["filename"]
     )
-    historic_cpi = [[date, val] for date, val in zip(cpi_times, cpi_observations)]
+    historic_cpi = [[date, val] for date, val in zip(inflation_times, cpi_observations)]
     fetch_uk_stat(url, output_filepath, historic_cpi)
 
 
@@ -57,7 +57,10 @@ def fetch_uk_inflation_cpih():
     output_filepath = (
         filepaths.DATA_DIR / stats_metadata["UK"]["inflation"]["CPIH"]["filename"]
     )
-    fetch_uk_stat(url, output_filepath)
+    historic_cpih = [
+        [date, val] for date, val in zip(inflation_times, cpih_observations)
+    ]
+    fetch_uk_stat(url, output_filepath, historic_cpih)
 
 
 def fetch_uk_inflation_rpi():
