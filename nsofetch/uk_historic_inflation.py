@@ -1,5 +1,5 @@
-# CPI data before 1989 is published in a spreadsheet here: https://www.ons.gov.uk/economy/inflationandpriceindices/datasets/consumerpriceinflationhistoricaldatauk1950to1988
-# The relevant series is copied below; being historic data, it won't be extended and is unlikely to be revised.
+# CPI and CPIH data before 1989 is published in a spreadsheet here: https://www.ons.gov.uk/economy/inflationandpriceindices/datasets/consumerpriceinflationhistoricaldatauk1950to1988
+# The relevant series are copied below; being historic data, it won't be extended and is unlikely to be revised.
 # Programatically extracting the data from the XLSX spreadsheet is possible but excessive, if this remains an exception.
 
 inflation_times = [
