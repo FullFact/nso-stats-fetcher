@@ -50,7 +50,7 @@ It is also deployed as a Github action which runs once a day at 12:00 UTC. So so
 # Setup
 Clone this repo
 ```
-git clone https://github.com/theodi/synthetic-data-tutorial.git
+git clone https://github.com/FullFact/nso-stats-fetcher.git
 ```
 
 Install required libraries in the `requirements.txt`. 
