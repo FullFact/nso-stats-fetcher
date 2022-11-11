@@ -39,6 +39,7 @@ def fetch_uk_stat(url: str, output_filepath: str, historic_data=None):
     with open(output_filepath, "w") as file:
         writer = csv.writer(file)
         writer.writerows(csv_output)
+    print(f"fetch_uk_stat wrote {len(csv_output)} rows to {output_filepath}")
 
 
 def fetch_uk_inflation_cpi():

@@ -31,9 +31,9 @@ def update_all():
     fetch_za.fetch_za_inflation_cpi()
     fetch_za.fetch_za_inflation_ppi()
 
-    fetch_ng.fetch_ng_inflation_cpi()
+    # fetch_ng.fetch_ng_inflation_cpi()
     # fetch_mx.fetch_mx_inflation_cpi()
-    fetch_jp.fetch_jp_inflation_cpi()
+    # fetch_jp.fetch_jp_inflation_cpi()
 
     add_last_updated()
 
