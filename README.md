@@ -4,8 +4,8 @@
 Fetches and cleans data from NSO websites and publishes them as in a standardised [tidy data](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format. 
 
 This work has two goals
-- Provide a database of well-formatted data that can be used in [Full Fact’s Robo-checking](https://github.com/FullFact/Robo-checking). 
-- To highlight how much work is involved to collect and compare national statistics data across countries. Particularly in the `analysis.md` write-up.
+- Provide a database of well-formatted data that can be used in [Full Fact’s Stats Checking tools](https://fullfact.org/blog/2021/jul/how-does-automated-fact-checking-work/). 
+- To highlight how much work is involved to collect and compare national statistics data across countries, as discussed in the `analysis.md` write-up.
 
 The data files follows a simple `timescale,observation` format. Time is YYYY-MM, and observation is percentage change. For example:
 
@@ -53,8 +53,13 @@ Clone this repo
 git clone https://github.com/FullFact/nso-stats-fetcher.git
 ```
 
-Install required libraries in the `requirements.txt`. 
+Install required libraries 
 
+Either
+```
+poetry install
+```
+or
 ```
 pip install -r requirements.txt
 ```
@@ -62,7 +67,7 @@ pip install -r requirements.txt
 To run the scripts and fetch updated versions of all the statistics data, run:
 
 ```
-python nsofetch/fetch_all.py
+python src/nsofetch/fetch_all.py
 ```
 
-Or just run each country's individual script individually. We use [ISO 3166 country codes](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), for standardised country names.
+Or just run each country's individual script individually. We use [ISO 3166 country codes](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) for standardised country names.
