@@ -32,7 +32,8 @@ jobs:
           pip install -r requirements.txt
           
       - name: execute py script 
-        run: python nsofetch/fetch_all.py
+        env: PYTHONPATH src
+        run: python src/nsofetch/fetch_all.py
           
       - name: commit files
         run: |
