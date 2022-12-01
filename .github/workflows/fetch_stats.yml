@@ -32,8 +32,9 @@ jobs:
           pip install -r requirements.txt
           
       - name: execute py script 
-        env: PYTHONPATH src
-        run: python src/nsofetch/fetch_all.py
+        run: |
+          echo "PYTHONPATH=src" >> $GITHUB_ENV
+          python src/nsofetch/fetch_all.py
           
       - name: commit files
         run: |
