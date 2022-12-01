@@ -5,6 +5,11 @@ on:
     # - cron: '0 10 * * *' # runs at 10:00 UTC everyday
     - cron: '5,35 6,7,8,9 * * 1-5' # runs at 5 and 35 past the hour UTC, Monday-Friday
     # this should catch ONS publications at 7am or 9:30am GMT or BST
+  on:
+    label:
+      types:
+        - created
+        # Allow manual triggering of workflow by adding a label
 
 jobs:
   build:
