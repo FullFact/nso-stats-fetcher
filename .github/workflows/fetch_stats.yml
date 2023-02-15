@@ -80,6 +80,11 @@ jobs:
 
       - name: Download artifacts
         uses: actions/download-artifact@v3
+        with:
+          path: artifacts
+
+      - name: Move files into place
+        run: mv artifacts/*/* data
 
       - name: Commit files
         run: |
