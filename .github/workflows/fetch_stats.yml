@@ -9,17 +9,41 @@ on:
     types:
       - created
       # Allow manual triggering of workflow by adding a label
+  push:
+    branches:
+      - parallelise-scrapers
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - country: uk
+            index: cpi
+          - country: uk
+            index: cpih
+          - country: uk
+            index: rpi
+          - country: ie
+            index: cpi
+          - country: ar
+            index: cpi
+          - country: za
+            index: cpi
+          - country: za
+            index: ppi
+          - country: ng
+            index: cpi
+          # - country: mx
+          #   index: cpi
+          - country: jp
+            index: cpi
     steps:
       - name: checkout repo content
         uses: actions/checkout@v3 
-        with:
-          ref: main
 
-      - uses: actions/checkout@v3
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
@@ -38,9 +62,26 @@ jobs:
       - name: execute py script 
         run: |
           echo "PYTHONPATH=src" >> $GITHUB_ENV
-          python src/nsofetch/fetch_all.py
-          
-      - name: commit files
+          python src/nsofetch/fetch_${{ matrix.country }}.py ${{ matrix.index }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.country }}-${{ matrix.index }}
+          path: data/${{ matrix.country }}_inflation_${{ matrix.index }}.csv
+
+  deploy:
+    if: ${{ always() }}
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v3
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+
+      - name: Commit files
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
