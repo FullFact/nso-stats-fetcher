@@ -9,9 +9,6 @@ on:
     types:
       - created
       # Allow manual triggering of workflow by adding a label
-  push:
-    branches:
-      - parallelise-scrapers
   workflow_dispatch:
 
 jobs:
