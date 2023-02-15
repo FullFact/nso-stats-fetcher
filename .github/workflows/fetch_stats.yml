@@ -70,7 +70,7 @@ jobs:
           echo "PYTHONPATH=src" >> $GITHUB_ENV
           python src/nsofetch/fetch_${{ matrix.country }}.py ${{ matrix.index }}
 
-      - name: Upload artifact
+      - name: Save scraper output
         uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.country }}-${{ matrix.index }}
@@ -84,12 +84,12 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v3
 
-      - name: Download artifacts
+      - name: Load scraper output
         uses: actions/download-artifact@v3
         with:
           path: artifacts
 
-      - name: Move files into place
+      - name: Move scraper output into place
         run: mv artifacts/*/* data
 
       - name: Add last updated timestamp
