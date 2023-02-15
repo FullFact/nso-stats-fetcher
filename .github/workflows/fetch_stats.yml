@@ -15,7 +15,7 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
+      fail-fast: false  # if a scraper errors, the rest will keep running
       matrix:
         include:
           - country: uk
@@ -77,8 +77,8 @@ jobs:
           path: data/${{ matrix.country }}_inflation_${{ matrix.index }}.csv
 
   deploy:
-    if: ${{ always() }}
-    needs: [fetch]
+    needs: [fetch]  # wait for the previous job to complete
+    if: ${{ always() }}  # run even if the previous job fails
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo content
