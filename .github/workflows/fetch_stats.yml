@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  fetch:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -80,7 +80,7 @@ jobs:
 
   deploy:
     if: ${{ always() }}
-    needs: [build]
+    needs: [fetch]
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo content
