@@ -94,6 +94,10 @@ jobs:
       - name: Move files into place
         run: mv artifacts/*/* data
 
+      - name: Add last updated timestamp
+        run: |
+          echo "Last updated: `date -u +"%Y-%m-%d %H:%M:%S"`" > status.txt
+
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
