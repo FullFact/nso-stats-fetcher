@@ -40,7 +40,7 @@ These are the statistics that are fetched, reformatted and stored in the `./data
 
 In almost all cases the data file is downloaded and read in (except for Philippines where the numbers were hard-coded). Preferably the files would be JSON or a CSV, but some countries have PDFs or XLS files. The location of all these files online and other metadata is in the [data/nso_stats_metadata.json](https://fullfact.github.io/nso-stats-fetcher/data/nso_stats_metadata.json) file.
 
-It is also deployed as a Github action which runs once a day at 12:00 UTC. So some of the statistics should stay up-to-date. You can view this Github action in `.github/workflow/fetch_stats.yaml`. However, given the variability of these statistics data, it wouldn't be surprising if the action breaks at some point if the published format changes.  
+It is also deployed as a Github action which runs several times between 6am and 10am UTC. So some of the statistics should stay up-to-date. You can view this Github action in `.github/workflow/fetch_stats.yaml`. However, given the variability of these statistics data, it wouldn't be surprising if the action breaks at some point if the published format changes.
 
 # Dependenices 
 - Java 8+ (for [Tabula to read PDFs](https://tabula-py.readthedocs.io/en/latest/getting_started.html#requirements))
