@@ -38,7 +38,7 @@ These are the statistics that are fetched, reformatted and stored in the `./data
   - [Consumer price index - monthly year-on-year](https://fullfact.github.io/nso-stats-fetcher/data/za_inflation_cpi.csv) ([source](https://www.statssa.gov.za/?page_id=1854&PPN=P0141))
   - [Producer price index - monthly year-on-year](https://fullfact.github.io/nso-stats-fetcher/data/za_inflation_ppi.csv) ([source](https://www.statssa.gov.za/?page_id=1854&PPN=P0142.1))
 
-In almost all cases the data file is downloaded and read in (except for Philippines where the numbers were hard-coded). Preferably the files would be JSON or a CSV, but some countries have PDFs or XLS files. The location of all these files online and other metadata is in the `data/nso_stats_metadata.json` file.
+In almost all cases the data file is downloaded and read in (except for Philippines where the numbers were hard-coded). Preferably the files would be JSON or a CSV, but some countries have PDFs or XLS files. The location of all these files online and other metadata is in the [data/nso_stats_metadata.json](https://fullfact.github.io/nso-stats-fetcher/data/nso_stats_metadata.json) file.
 
 It is also deployed as a Github action which runs once a day at 12:00 UTC. So some of the statistics should stay up-to-date. You can view this Github action in `.github/workflow/fetch_stats.yaml`. However, given the variability of these statistics data, it wouldn't be surprising if the action breaks at some point if the published format changes.  
 
