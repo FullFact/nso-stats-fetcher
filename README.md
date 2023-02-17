@@ -5,7 +5,7 @@ Fetches and cleans data from NSO websites and publishes them as in a standardise
 
 This work has two goals
 - Provide a database of well-formatted data that can be used in [Full Fact’s Stats Checking tools](https://fullfact.org/blog/2021/jul/how-does-automated-fact-checking-work/). 
-- To highlight how much work is involved to collect and compare national statistics data across countries, as discussed in the `analysis.md` write-up.
+- To highlight how much work is involved to collect and compare national statistics data across countries, [as discussed in the write-up](https://fullfact.github.io/nso-stats-fetcher/analysis.html).
 
 The data files follows a simple `timescale,observation` format. Time is YYYY-MM, and observation is percentage change. For example:
 
