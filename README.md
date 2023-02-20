@@ -25,7 +25,7 @@ These are the statistics that are fetched, reformatted and stored in the `./data
 - Japan
   - [Consumer price index – monthly year-on-year](https://fullfact.github.io/nso-stats-fetcher/data/jp_inflation_cpi.csv) ([source](https://www.stat.go.jp/english/data/cpi/1581-z.html))
 - Mexico
-  - [Consumer price index – monthly year-on-year](https://fullfact.github.io/nso-stats-fetcher/data/mx_inflation_cpi.csv) ([source](https://www.stat.go.jp/english/data/cpi/1581-z.html))
+  - [Consumer price index – monthly year-on-year](https://fullfact.github.io/nso-stats-fetcher/data/mx_inflation_cpi.csv) ([source](https://en.www.inegi.org.mx/app/indicadores/))
 - Nigeria
   - [Consumer price index – monthly year-on-year](https://fullfact.github.io/nso-stats-fetcher/data/ng_inflation_cpi.csv) ([source](https://nigerianstat.gov.ng/elibrary/read/1241157))
 - Philippines
