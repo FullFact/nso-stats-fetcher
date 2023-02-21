@@ -108,3 +108,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
+
+      - name: Clean up artifacts
+        uses: geekyeggo/delete-artifact@v2
+        with:
+            name: '*'
+            failOnError: false
