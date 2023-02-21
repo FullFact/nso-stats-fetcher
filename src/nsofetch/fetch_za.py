@@ -1,4 +1,4 @@
-import csv
+import sys
 import itertools
 
 import tabula
@@ -101,5 +101,8 @@ def fetch_za_inflation_ppi():
 
 
 if __name__ == "__main__":
-    fetch_za_inflation_cpi()
-    fetch_za_inflation_ppi()
+    scraper_to_run = sys.argv[1] if len(sys.argv) > 1 else "-"
+    if scraper_to_run in ["cpi", "-"]:
+        fetch_za_inflation_cpi()
+    if scraper_to_run in ["ppi", "-"]:
+        fetch_za_inflation_ppi()

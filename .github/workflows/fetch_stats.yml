@@ -9,17 +9,39 @@ on:
     types:
       - created
       # Allow manual triggering of workflow by adding a label
+  workflow_dispatch:
 
 jobs:
-  build:
+  fetch:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false  # if a scraper errors, the rest will keep running
+      matrix:
+        include:
+          - country: uk
+            index: cpi
+          - country: uk
+            index: cpih
+          - country: uk
+            index: rpi
+          - country: ie
+            index: cpi
+          - country: ar
+            index: cpi
+          - country: za
+            index: cpi
+          - country: za
+            index: ppi
+          - country: ng
+            index: cpi
+          # - country: mx
+          #   index: cpi
+          - country: jp
+            index: cpi
     steps:
       - name: checkout repo content
         uses: actions/checkout@v3 
-        with:
-          ref: main
 
-      - uses: actions/checkout@v3
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
@@ -30,6 +52,14 @@ jobs:
         with:
           python-version: '3.X' # install the latest python3 version
       
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       - name: install python packages
         run: |
           python -m pip install --upgrade pip
@@ -38,9 +68,35 @@ jobs:
       - name: execute py script 
         run: |
           echo "PYTHONPATH=src" >> $GITHUB_ENV
-          python src/nsofetch/fetch_all.py
-          
-      - name: commit files
+          python src/nsofetch/fetch_${{ matrix.country }}.py ${{ matrix.index }}
+
+      - name: Save scraper output
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.country }}-${{ matrix.index }}
+          path: data/${{ matrix.country }}_inflation_${{ matrix.index }}.csv
+
+  deploy:
+    needs: [fetch]  # wait for the previous job to complete
+    if: ${{ always() }}  # run even if the previous job fails
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v3
+
+      - name: Load scraper output
+        uses: actions/download-artifact@v3
+        with:
+          path: artifacts
+
+      - name: Move scraper output into place
+        run: mv artifacts/*/* data
+
+      - name: Add last updated timestamp
+        run: |
+          echo "Last updated: `date -u +"%Y-%m-%d %H:%M:%S"`" > status.txt
+
+      - name: Commit files
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"

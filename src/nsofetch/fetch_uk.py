@@ -1,3 +1,4 @@
+import sys
 import json
 import csv
 import requests
@@ -74,6 +75,10 @@ def fetch_uk_inflation_rpi():
 
 
 if __name__ == "__main__":
-    fetch_uk_inflation_cpi()
-    fetch_uk_inflation_cpih()
-    fetch_uk_inflation_rpi()
+    scraper_to_run = sys.argv[1] if len(sys.argv) > 1 else "-"
+    if scraper_to_run in ["cpi", "-"]:
+        fetch_uk_inflation_cpi()
+    if scraper_to_run in ["cpih", "-"]:
+        fetch_uk_inflation_cpih()
+    if scraper_to_run in ["rpi", "-"]:
+        fetch_uk_inflation_rpi()
