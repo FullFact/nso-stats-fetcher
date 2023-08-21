@@ -1,5 +1,3 @@
-import json
-
 import requests
 import pandas
 
@@ -12,7 +10,7 @@ def fetch_ie_inflation_cpi():
     url = stats_metadata['IE']['inflation']['CPI']['url']
 
     response = requests.get(url)
-    stats = json.loads(response.text)
+    stats = response.json()
 
     months = stats['result']['dimension']['TLIST(M1)']['category']['index']
     months = [month[:4] + '-' + month[4:] for month in months]

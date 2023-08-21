@@ -1,5 +1,4 @@
 import sys
-import json
 import csv
 import requests
 import filepaths
@@ -27,7 +26,7 @@ def month_name_to_num(month_name):
 
 def fetch_uk_stat(url: str, output_filepath: str, historic_data=None):
     response = requests.get(url)
-    stats = json.loads(response.text)
+    stats = response.json()
 
     csv_output = [["month", "observation"]]
     if historic_data:

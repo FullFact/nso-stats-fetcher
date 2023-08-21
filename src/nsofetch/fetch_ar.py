@@ -4,14 +4,13 @@ import requests
 import utils
 import filepaths
 
-import json
 
 def fetch_ar_inflation_cpi():
     stats_metadata = utils.read_stats_metadata()
 
     url = stats_metadata['AR']['inflation']['CPI']['url']
     response = requests.get(url)
-    stats = json.loads(response.text)
+    stats = response.json()
 
     months = []
     observations = []
