@@ -26,6 +26,7 @@ def month_name_to_num(month_name):
 
 def fetch_uk_stat(url: str, output_filepath: str, historic_data=None):
     response = requests.get(url)
+    response.raise_for_status()
     stats = response.json()
 
     csv_output = [["month", "observation"]]

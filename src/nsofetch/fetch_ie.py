@@ -10,6 +10,7 @@ def fetch_ie_inflation_cpi():
     url = stats_metadata['IE']['inflation']['CPI']['url']
 
     response = requests.get(url)
+    response.raise_for_status()
     stats = response.json()
 
     months = stats['result']['dimension']['TLIST(M1)']['category']['index']
