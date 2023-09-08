@@ -9,12 +9,7 @@ def fetch_ar_inflation_cpi():
     stats_metadata = utils.read_stats_metadata()
 
     url = stats_metadata["AR"]["inflation"]["CPI"]["url"]
-    response = requests.get(
-        url,
-        headers={
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
-        },
-    )
+    response = requests.get(url)
     response.raise_for_status()
     stats = response.json()
 
