@@ -1,3 +1,4 @@
+import os
 import pandas
 import requests
 
@@ -8,8 +9,12 @@ import filepaths
 def fetch_ar_inflation_cpi():
     stats_metadata = utils.read_stats_metadata()
 
+    proxies = {
+        "http": os.environ["PROXY_URL"],
+        "https": os.environ["PROXY_URL"],
+    }
     url = stats_metadata["AR"]["inflation"]["CPI"]["url"]
-    response = requests.get(url)
+    response = requests.get(url, proxies=proxies)
     response.raise_for_status()
     stats = response.json()
 
