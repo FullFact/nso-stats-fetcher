@@ -67,8 +67,10 @@ jobs:
           
       - name: execute py script 
         run: |
-          echo "PYTHONPATH=src" >> $GITHUB_ENV
           python src/nsofetch/fetch_${{ matrix.country }}.py ${{ matrix.index }}
+        env:
+          PYTHONPATH: src
+          PROXY_URL: ${{ secrets.PROXY_URL }}
 
       - name: Save scraper output
         uses: actions/upload-artifact@v3
