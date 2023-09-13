@@ -25,7 +25,9 @@ def month_name_to_num(month_name):
 
 
 def fetch_uk_stat(url: str, output_filepath: str, historic_data=None):
-    response = requests.get(url)
+    response = requests.get(url, headers={
+        "user-agent": "https://github.com/FullFact/nso-stats-fetcher"}
+    )
     response.raise_for_status()
     stats = response.json()
 
