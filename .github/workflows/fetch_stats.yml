@@ -73,7 +73,7 @@ jobs:
           PROXY_URL: ${{ secrets.PROXY_URL }}
 
       - name: Save scraper output
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.country }}-${{ matrix.index }}
           path: data/${{ matrix.country }}_inflation_${{ matrix.index }}.csv
@@ -87,7 +87,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Load scraper output
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           path: artifacts
 
