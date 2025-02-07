@@ -112,5 +112,5 @@ jobs:
       - name: Clean up artifacts
         uses: geekyeggo/delete-artifact@v2
         with:
-            name: '*'
-            failOnError: false
+          name: '*'
+          failOnError: false
