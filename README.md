@@ -1,6 +1,5 @@
 [![fetch-stats](https://github.com/FullFact/nso-stats-fetcher/actions/workflows/fetch_stats.yml/badge.svg)](https://github.com/FullFact/nso-stats-fetcher/actions/workflows/fetch_stats.yml)
 
-# National Statistical Offices Statistics Fetcher
 Fetches and cleans data from NSO websites and publishes them as in a standardised [tidy data](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format. 
 
 This work has two goals

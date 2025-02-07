@@ -1,3 +1,4 @@
+title: National Statistical Offices Statistics Fetcher
 exclude:
   - src/
   - poetry.lock
