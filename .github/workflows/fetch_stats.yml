@@ -114,3 +114,19 @@ jobs:
         with:
           name: '*'
           failOnError: false
+
+  # notify_on_failure:
+  #   needs: [deploy]
+  #   if: ${{ failure() }}  # run if anything before this point fails
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Send a message to Slack if something went wrong
+  #       uses: slackapi/slack-github-action@v2
+  #       with:
+  #         method: chat.postMessage
+  #         token: ${{ secrets.SLACK_BOT_TOKEN }}
+  #         payload: |
+  #           channel: "${{ env.SLACK_CHANNEL_ID }}"
+  #           username: "NSO stats fetcher"
+  #           icon_emoji: ":chart_with_downwards_trend:"
+  #           text: ":warning: Uh oh – the NSO stats fetcher has errored :warning:"
