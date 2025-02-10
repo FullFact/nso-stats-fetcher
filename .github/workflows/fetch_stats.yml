@@ -38,34 +38,28 @@ jobs:
             index: cpi
     steps:
       - name: checkout repo content
-        uses: actions/checkout@v3 
+        uses: actions/checkout@v4
 
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: setup python
-        uses: actions/setup-python@v3
-        with:
-          python-version: '3.11'
-      
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+      - name: Install poetry
+        run: pipx install poetry==1.8.5
 
-      - name: install python packages
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: 'pyproject.toml'
+          cache: 'poetry'
+
+      - name: Install python dependencies
+        run: poetry install --no-root
+
+      - name: execute py script
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          
-      - name: execute py script 
-        run: |
-          python src/nsofetch/fetch_${{ matrix.country }}.py ${{ matrix.index }}
+          poetry run python src/nsofetch/fetch_${{ matrix.country }}.py ${{ matrix.index }}
         env:
           PYTHONPATH: src
           PROXY_URL: ${{ secrets.PROXY_URL }}
@@ -82,7 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo content
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Load scraper output
         uses: actions/download-artifact@v4
