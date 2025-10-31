@@ -24,8 +24,8 @@ jobs:
             index: rpi
           - country: ie
             index: cpi
-          - country: ar
-            index: cpi
+          # - country: ar
+          #   index: cpi
           - country: za
             index: cpi
           - country: za
