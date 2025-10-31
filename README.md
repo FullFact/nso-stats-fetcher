@@ -45,6 +45,7 @@ It is also deployed as a Github action which runs several times between 6am and 
 - Java 8+ (for [Tabula to read PDFs](https://tabula-py.readthedocs.io/en/latest/getting_started.html#requirements))
 - Python 3.10+
   - It likely works for older versions of Python, but it hasn't been tested
+- Poetry
 
 # Setup
 Clone this repo
@@ -54,13 +55,8 @@ git clone https://github.com/FullFact/nso-stats-fetcher.git
 
 Install required libraries 
 
-Either
 ```
 poetry install
-```
-or
-```
-pip install -r requirements.txt
 ```
 
 To run the scripts and fetch updated versions of all the statistics data, run:
