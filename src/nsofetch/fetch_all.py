@@ -24,8 +24,10 @@ def update_all():
     logger.info("getting Ireland data...")
     fetch_ie.fetch_ie_inflation_cpi()
 
-    logger.info("getting Argentina data...")
-    fetch_ar.fetch_ar_inflation_cpi()
+    # The Argentinian API stopped working in October 2025
+    # so we'll just ignore it.
+    # logger.info("getting Argentina data...")
+    # fetch_ar.fetch_ar_inflation_cpi()
 
     logger.info("getting South Africa data...")
     fetch_za.fetch_za_inflation_cpi()
