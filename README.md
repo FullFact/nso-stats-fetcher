@@ -2,6 +2,12 @@
 
 Fetches and cleans data from NSO websites and publishes them as in a standardised [tidy data](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format. 
 
+## Update (January 2026): 
+
+This project is no longer maintained and the data set is no longer being updated.
+
+### Goals
+
 This work has two goals
 - Provide a database of well-formatted data that can be used in [Full Fact’s Stats Checking tools](https://fullfact.org/blog/2021/jul/how-does-automated-fact-checking-work/). 
 - To highlight how much work is involved to collect and compare national statistics data across countries, [as discussed in the write-up](https://fullfact.github.io/nso-stats-fetcher/analysis.html).
@@ -39,7 +45,7 @@ These are the statistics that are fetched, reformatted and stored in the `./data
 
 In almost all cases the data file is downloaded and read in (except for Philippines where the numbers were hard-coded). Preferably the files would be JSON or a CSV, but some countries have PDFs or XLS files. The location of all these files online and other metadata is in the [data/nso_stats_metadata.json](https://fullfact.github.io/nso-stats-fetcher/data/nso_stats_metadata.json) file.
 
-It is also deployed as a Github action which runs several times between 6am and 10am UTC. So some of the statistics should stay up-to-date. You can view this Github action in `.github/workflow/fetch_stats.yaml`. However, given the variability of these statistics data, it wouldn't be surprising if the action breaks at some point if the published format changes.
+Until January 2026, it was also deployed as a Github action which ran several times between 6am and 10am UTC. So some of the statistics should stay up-to-date. You can view this Github action in `.github/workflow/fetch_stats.yaml`. However, given the variability of these statistics data, it wouldn't be surprising if the action breaks at some point if the published format changes.
 
 # Dependenices 
 - Java 8+ (for [Tabula to read PDFs](https://tabula-py.readthedocs.io/en/latest/getting_started.html#requirements))
